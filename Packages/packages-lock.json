@@ -4,7 +4,9 @@
       "version": "file:com.epl.klib",
       "depth": 0,
       "source": "embedded",
-      "dependencies": {}
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "2.0.0"
+      }
     },
     "com.unity.2d.animation": {
       "version": "5.0.9",
