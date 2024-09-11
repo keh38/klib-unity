@@ -8,23 +8,37 @@ using System.Text;
 
 namespace KLib.Network
 {
-    public class UDPMulticastServer : MonoBehaviour
+    /// <summary>
+    /// Runs a UDP multicast server on 234.5.6.7 to allow clients to discover the address of a TCP server.
+    /// </summary>
+    public class NetworkDiscoveryServer : MonoBehaviour
     {
         Thread _readThread;
 
         UdpClient _udp = null;
         string _name = "";
+        string _address = "";
         int _port = -1;
 
         void Start()
         {
         }
 
+        /// <summary>
+        /// Indicates whether UDP server is still running.
+        /// </summary>
         public bool IsReceiving { get { return _readThread.IsAlive; } }
 
-        public void StartReceiving(string name, int port)
+        /// <summary>
+        /// Called by TCP server to start discovery server.
+        /// </summary>
+        /// <param name="name">Name of TCP server (typically all caps). Client broadcasts this name when searching for server. </param>
+        /// <param name="address">LAN address on which TCP server is listening</param>
+        /// <param name="port">Port on which TCP server is listening</param>
+        public void StartReceiving(string name, string address, int port)
         {
             _name = name;
+            _address = address;
             _port = port;
 
             // create thread for reading UDP messages
@@ -34,6 +48,9 @@ namespace KLib.Network
             _readThread.Start();
         }
 
+        /// <summary>
+        /// Called by TCP server to stop discovery server.
+        /// </summary>
         public void StopReceiving()
         {
             Debug.Log("Stopping multicast thread");
@@ -66,18 +83,16 @@ namespace KLib.Network
 
         private void ReceiveData()
         {
-            //        var addy = SRITCP.FindServerAddress();
-            string addy = "";
-            Debug.Log("Multicast listening on: " + addy);
+            Debug.Log("Multicast listening on: " + _address);
 
             IPAddress localAddress;
-            if (addy.Equals("localhost"))
+            if (_address.Equals("localhost"))
             {
                 localAddress = IPAddress.Loopback;
             }
             else
             {
-                localAddress = IPAddress.Parse(addy);
+                localAddress = IPAddress.Parse(_address);
             }
 
             var ipLocal = new IPEndPoint(localAddress, 10000);
@@ -108,7 +123,6 @@ namespace KLib.Network
                     {
                         bytes = Encoding.UTF8.GetBytes(_port.ToString());
                         _udp.Send(bytes, bytes.Length, anyIP);
-                        //Debug.Log("response sent");
                     }
                 }
                 catch (Exception ex)

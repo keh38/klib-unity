@@ -6,11 +6,25 @@ using UnityEngine;
 
 namespace KLib.Network
 {
+    /// <summary>
+    /// Collection of utilities for TCP/UDP
+    /// </summary>
     public static class NetworkUtils
     {
-        public static string ServerAddress;
-
         public static string FindServerAddress()
+        {
+            return FindServerAddress(true);
+        }
+
+        /// <summary>
+        /// Finds IP address belonging to a LAN on which to run a TCP server.
+        /// </summary>
+        /// <remarks>
+        /// Parses ARP table to find a valid LAN address (starting with 169.254 or 11.12.13). Optionally defaults to localhost if no NIC found.
+        /// </remarks>
+        /// <param name="canUseLocalhost">specifies whether a localhost connection is allowed. Defaults to true.</param>
+        /// <returns>IP address of NIC attached to LAN</returns>
+        public static string FindServerAddress(bool canUseLocalhost)
         {
             System.Diagnostics.Process p = null;
             string output = string.Empty;
@@ -18,6 +32,7 @@ namespace KLib.Network
 
             try
             {
+                // Executes "arp -a" in Windows command shell
                 p = System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo("arp", "-a")
                 {
                     CreateNoWindow = true,
@@ -37,16 +52,16 @@ namespace KLib.Network
                                       where !string.IsNullOrEmpty(piece)
                                       select piece).ToArray();
 
+                        // auto-configured LAN
                         if (line.StartsWith("Interface:") && pieces[1].StartsWith("169.254"))
                         {
                             address = pieces[1];
-                            ServerAddress = address;
                             return address;
                         }
-                        if (line.StartsWith("Interface:") && pieces[1].StartsWith("11.12"))
+                        // LAN configured using 11.12.13.xxx convention
+                        if (line.StartsWith("Interface:") && pieces[1].StartsWith("11.12.13"))
                         {
                             address = pieces[1];
-                            ServerAddress = address;
                             return address;
                         }
                     }
@@ -65,12 +80,12 @@ namespace KLib.Network
                 }
             }
 #if UNITY_EDITOR
-        if (string.IsNullOrEmpty(address))
-        {
-            address = "localhost";
-            ServerAddress = address;
-        }
+            canUseLocalhost = true;
 #endif
+            if (string.IsNullOrEmpty(address) && canUseLocalhost)
+            {
+                address = "localhost";
+            }
 
             return address;
         }
