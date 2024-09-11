@@ -10,7 +10,7 @@ namespace KLib.Network
     /// <summary>
     /// Wrapper for System.Net.Sockets.TcpListener that simplifies read/write functionality.
     /// </summary>
-    public class KTCPListener
+    public class KTcpListener
     {
         private TcpListener _listener = null;
         private TcpClient _client = null;
@@ -36,6 +36,9 @@ namespace KLib.Network
         public bool StartListener(string address, int port, bool bigEndian)
         {
             _bigEndian = bigEndian;
+
+
+            IPAddress ipAddress = (address.Equals("localhost")) ? IPAddress.Loopback : IPAddress.Parse(address);
 
             _listener = new TcpListener(IPAddress.Parse(address), port);
             _listener.Start();
