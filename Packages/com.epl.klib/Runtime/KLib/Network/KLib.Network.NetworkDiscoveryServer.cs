@@ -13,7 +13,7 @@ namespace KLib.Network
     /// </summary>
     public class NetworkDiscoveryServer : MonoBehaviour
     {
-        Thread _readThread;
+        Thread _readThread = null;
 
         UdpClient _udp = null;
         string _name = "";
@@ -53,19 +53,23 @@ namespace KLib.Network
         /// </summary>
         public void StopReceiving()
         {
-            Debug.Log("Stopping multicast thread");
+            Debug.Log("Stopping multicast discovery thread");
             StopThread();
         }
 
         // Stop reading UDP messages
         private void StopThread()
         {
-            Debug.Log("IsAlive = " + _readThread.IsAlive.ToString());
+            if (_readThread == null)
+            {
+                return;
+            }
+
             _readThread.Abort();
             if (_udp != null)
             {
                 _udp.Close();
-                Debug.Log("Multicast closed");
+                Debug.Log("Multicast discovery server closed");
             }
 
             //if (_readThread.IsAlive)
@@ -83,7 +87,7 @@ namespace KLib.Network
 
         private void ReceiveData()
         {
-            Debug.Log("Multicast listening on: " + _address);
+            Debug.Log("Multicast discovery server listening on: " + _address);
 
             IPAddress localAddress;
             if (_address.Equals("localhost"))

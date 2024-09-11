@@ -70,7 +70,7 @@ namespace KLib.Network
             }
             catch (Exception ex)
             {
-                throw new Exception("IPInfo: Error Retrieving 'arp -a' Results", ex);
+                throw new Exception("Error retrieving 'arp -a' results", ex);
             }
             finally
             {
