@@ -55,7 +55,7 @@
   <ItemGroup>
     <Compile Include="Packages\com.epl.klib\Runtime\KLib\Network\KLib.Network.NetworkUtils.cs" />
     <Compile Include="Packages\com.epl.klib\Runtime\KLib\Network\KLib.Network.NetworkDiscoveryServer.cs" />
-    <Compile Include="Packages\com.epl.klib\Runtime\KLib\Network\KLib.Network.KTCPListener.cs" />
+    <Compile Include="Packages\com.epl.klib\Runtime\KLib\Network\KLib.Network.KTcpListener.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Packages\com.epl.klib\Runtime\KLib\Network\KLib.Network.asmdef" />
