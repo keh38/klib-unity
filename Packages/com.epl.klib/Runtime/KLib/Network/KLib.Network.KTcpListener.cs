@@ -40,7 +40,7 @@ namespace KLib.Network
 
             IPAddress ipAddress = (address.Equals("localhost")) ? IPAddress.Loopback : IPAddress.Parse(address);
 
-            _listener = new TcpListener(IPAddress.Parse(address), port);
+            _listener = new TcpListener(ipAddress, port);
             _listener.Start();
             
 
