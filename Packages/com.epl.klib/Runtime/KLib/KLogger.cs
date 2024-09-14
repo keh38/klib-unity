@@ -13,7 +13,7 @@ namespace KLib
 
         public void StartLogging(string logPath)
         {
-            _logPath = logPath.Replace(".txt", $"-{System.DateTime.Now.ToString("yyyyMMdd_HHmmss")}-.txt"); ;
+            _logPath = logPath.Replace(".txt", $"-{System.DateTime.Now.ToString("yyyyMMdd_HHmmss")}.txt"); ;
 
             var folder = Path.GetDirectoryName(_logPath);
             if (!Directory.Exists(folder))
@@ -22,18 +22,18 @@ namespace KLib
             }
 
             _log = new StringBuilder(1000);
-            Application.logMessageReceived += HandleLog;
+            Application.logMessageReceivedThreaded += HandleLog;
         }
 
         void StopLogging()
         {
-            Application.logMessageReceived -= HandleLog;
+            Application.logMessageReceivedThreaded -= HandleLog;
             FlushLog();
         }
 
         void OnDisable()
         {
-            Application.logMessageReceived -= HandleLog;
+            Application.logMessageReceivedThreaded -= HandleLog;
             FlushLog();
         }
 

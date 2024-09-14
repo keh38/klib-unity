@@ -46,6 +46,7 @@ namespace KLib.Network
             _readThread.IsBackground = true;
 
             _readThread.Start();
+            Debug.Log("Multicast discovery server listening on: " + _address);
         }
 
         /// <summary>
@@ -87,7 +88,7 @@ namespace KLib.Network
 
         private void ReceiveData()
         {
-            Debug.Log("Multicast discovery server listening on: " + _address);
+            Debug.Log("2 Multicast discovery server listening on: " + _address);
 
             IPAddress localAddress;
             if (_address.Equals("localhost"))
