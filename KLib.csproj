@@ -55,7 +55,7 @@
     <UnityVersion>2020.3.22f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Packages\com.epl.klib\Runtime\KLib\Logger.cs" />
+    <Compile Include="Packages\com.epl.klib\Runtime\KLib\KLogger.cs" />
     <Compile Include="Packages\com.epl.klib\Runtime\KLib\KLib.File.cs" />
   </ItemGroup>
   <ItemGroup>

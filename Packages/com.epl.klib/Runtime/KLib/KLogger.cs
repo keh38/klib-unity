@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace KLib
 {
-    public class Logger : MonoBehaviour
+    public class KLogger : MonoBehaviour
     {
         private string _logPath;
         private StringBuilder _log;
