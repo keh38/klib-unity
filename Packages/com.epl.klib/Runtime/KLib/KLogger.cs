@@ -8,8 +8,12 @@ namespace KLib
 {
     public class KLogger : MonoBehaviour
     {
+        public enum Level { Default, Verbose };
+
         private string _logPath;
         private StringBuilder _log;
+
+        public Level MinimumLevel { set; get; } = Level.Default;
 
         public void StartLogging(string logPath)
         {
@@ -45,10 +49,17 @@ namespace KLib
 
         void HandleLog(string logString, string stackTrace, LogType type)
         {
-            _log.AppendLine($"{System.DateTime.Now} [{type}] {logString}");
-            if (type == LogType.Error || type == LogType.Exception)
+            if (logString.StartsWith("[Debug]") && MinimumLevel == Level.Verbose)
             {
-                _log.AppendLine(stackTrace);
+                _log.AppendLine($"{System.DateTime.Now} {logString}");
+            }
+            else
+            {
+                _log.AppendLine($"{System.DateTime.Now} [{type}] {logString}");
+                if (type == LogType.Error || type == LogType.Exception)
+                {
+                    _log.AppendLine(stackTrace);
+                }
             }
 
             if (_log.Length > 1000)
