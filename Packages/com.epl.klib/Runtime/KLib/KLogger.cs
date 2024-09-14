@@ -15,6 +15,39 @@ namespace KLib
 
         public Level MinimumLevel { set; get; } = Level.Default;
 
+        // Make singleton
+        private static KLogger _instance;
+        public static KLogger Log
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    GameObject gobj = GameObject.Find("Logger");
+                    if (gobj != null)
+                    {
+                        _instance = gobj.GetComponent<KLogger>();
+                    }
+                    else
+                    {
+                        _instance = new GameObject("Logger").AddComponent<KLogger>();
+                    }
+                    _instance.Init();
+                }
+                return _instance;
+            }
+        }
+
+        public static void Debug(string message)
+        {
+            UnityEngine.Debug.Log("[Debug] " + message);
+        }
+
+        public void Init()
+        {
+            DontDestroyOnLoad(this);
+        }
+
         public void StartLogging(string logPath)
         {
             _logPath = logPath.Replace(".txt", $"-{System.DateTime.Now.ToString("yyyyMMdd_HHmmss")}.txt"); ;
@@ -49,9 +82,12 @@ namespace KLib
 
         void HandleLog(string logString, string stackTrace, LogType type)
         {
-            if (logString.StartsWith("[Debug]") && MinimumLevel == Level.Verbose)
+            if (logString.StartsWith("[Debug]"))
             {
-                _log.AppendLine($"{System.DateTime.Now} {logString}");
+                if (MinimumLevel == Level.Verbose)
+                {
+                    _log.AppendLine($"{System.DateTime.Now} {logString}");
+                }
             }
             else
             {
