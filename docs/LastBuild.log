@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shfbBuild product="Sandcastle Help File Builder and Tools" version="2024.2.18.0" projectFile="D:\Development\klib-unity\Documentation\Documentation.shfbproj" started="9/14/2024 11:59:46 AM">
+<shfbBuild product="Sandcastle Help File Builder and Tools" version="2024.2.18.0" projectFile="D:\Development\klib-unity\Documentation\Documentation.shfbproj" started="9/14/2024 12:05:28 PM">
 <buildStep step="Initializing">
 The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder&#39;
 Locating components in the following folder(s):
@@ -32,17 +32,17 @@ Copying XML comments files
 </buildStep>
 <buildStep step="GenerateSharedContent">
 Generating shared content files (en-US, English (United States))...
-    Last step completed in 00:00:00.0000
+    Last step completed in 00:00:00.0010
 </buildStep>
 <buildStep step="GenerateApiFilter">
 Generating API filter for MRefBuilder...
-    Last step completed in 00:00:00.0010
+    Last step completed in 00:00:00.0000
 </buildStep>
 <buildStep step="GenerateReflectionInfo">
 Generating reflection information...
-[C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe - GenerateRefInfo-41586b77-50e4-4db7-b718-f598e7526725.proj]
-Build started 9/14/2024 11:59:47 AM.
-Project &quot;D:\Development\klib-unity\docs\Working\GenerateRefInfo-41586b77-50e4-4db7-b718-f598e7526725.proj&quot; on node 1 (default targets).
+[C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe - GenerateRefInfo-d913c06d-b2fa-4c30-b9d6-7b2f45fb6ca5.proj]
+Build started 9/14/2024 12:05:28 PM.
+Project &quot;D:\Development\klib-unity\docs\Working\GenerateRefInfo-d913c06d-b2fa-4c30-b9d6-7b2f45fb6ca5.proj&quot; on node 1 (default targets).
 PrepareForBuild:
   Creating directory &quot;obj\Debug\&quot;.
 GenerateBindingRedirects:
@@ -55,8 +55,8 @@ GenerateRefInfo:
   Wrote information on 2 namespaces, 6 types, and 69 members
   Merging duplicate type and member information
   Merged 0 duplicate type(s) and 0 duplicate member(s)
-Done Building Project &quot;D:\Development\klib-unity\docs\Working\GenerateRefInfo-41586b77-50e4-4db7-b718-f598e7526725.proj&quot; (default targets).
-    Last step completed in 00:00:00.4438
+Done Building Project &quot;D:\Development\klib-unity\docs\Working\GenerateRefInfo-d913c06d-b2fa-4c30-b9d6-7b2f45fb6ca5.proj&quot; (default targets).
+    Last step completed in 00:00:00.4578
 </buildStep>
 <buildStep step="ApplyDocumentModel">
 Applying document model to reflection output...
@@ -65,11 +65,11 @@ Applying document model to reflection output...
 <buildStep step="AddNamespaceGroups">
 Adding namespace group entries...
 Added 0 namespace group entries
-    Last step completed in 00:00:00.0030
+    Last step completed in 00:00:00.0020
 </buildStep>
 <buildStep step="AddApiTopicFilenames">
 Adding topic filenames to API members...
-    Last step completed in 00:00:00.0020
+    Last step completed in 00:00:00.0070
 </buildStep>
 <buildStep step="GenerateApiTopicManifest">
 Generating API topic manifest...
@@ -87,7 +87,7 @@ Copying images and creating the media map file...
 Generating conceptual topic files
     Parsing topic file &#39;D:\Development\klib-unity\Documentation\Content\Welcome.aml&#39;
     D:\Development\klib-unity\Documentation\Content\Welcome.aml -&gt; D:\Development\klib-unity\docs\Working\ddueXml\c4c048c7-aae9-4dd2-856b-e0662110683e.xml
-    Last step completed in 00:00:00.0100
+    Last step completed in 00:00:00.0060
 </buildStep>
 <buildStep step="CreateConceptualTopicConfigs">
 Creating conceptual topic configuration files...
@@ -103,7 +103,7 @@ D:\Development\klib-unity\Documentation\icons\Help.png -&gt; D:\Development\klib
 </buildStep>
 <buildStep step="MergeTablesOfContents">
 Merging conceptual and additional tables of contents...
-    Last step completed in 00:00:00.0000
+    Last step completed in 00:00:00.0010
 </buildStep>
 <buildStep step="GenerateIntermediateTableOfContents">
 Generating intermediate table of contents file for API content...
@@ -112,7 +112,7 @@ Generating conceptual content intermediate TOC file...
 </buildStep>
 <buildStep step="CreateBuildAssemblerConfigs">
 Creating Sandcastle configuration files...
-    Last step completed in 00:00:00.0568
+    Last step completed in 00:00:00.0598
 </buildStep>
 <buildStep step="CombiningIntermediateTocFiles">
 Combining conceptual and API intermediate TOC files...
@@ -124,7 +124,7 @@ D:\Development\klib-unity\docs\Working\BuildAssembler.config
   Updating reference topic configurations.
   Updating conceptual topic configurations.
     Removing unused ExampleComponent.
-    Last step completed in 00:00:00.0020
+    Last step completed in 00:00:00.0030
 </buildStep>
 <buildStep step="BuildTopics">
 Building help topics...
@@ -301,7 +301,7 @@ CopyFromIndexComponent: &quot;reflection&quot; in-memory cache entries used: 4 o
 CopyFromIndexComponent: &quot;comments&quot; in-memory cache entries used: 2 of 30.
 <plugIn name="Website Table of Contents Generator" behavior="After" priority="1000">
 Generating TOC fragment files
-</plugIn>    Last step completed in 00:00:04.1234
+</plugIn>    Last step completed in 00:00:04.1296
 </buildStep>
 <buildStep step="CopyStandardHelpContent">
 Copying standard help content...
@@ -337,26 +337,26 @@ C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Defaul
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\RootWebsiteContent\SearchHelp.inc.php -&gt; D:\Development\klib-unity\docs\Working\Output\Website\SearchHelp.inc.php
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\RootWebsiteContent\SearchHelp.php -&gt; D:\Development\klib-unity\docs\Working\Output\Website\SearchHelp.php
 C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\RootWebsiteContent\Web.Config -&gt; D:\Development\klib-unity\docs\Working\Output\Website\Web.Config
-    Last step completed in 00:00:00.0708
+    Last step completed in 00:00:00.0728
 </buildStep>
 <buildStep step="GenerateFullTextIndex">
 Generating full-text index for the website...
 
-    Last step completed in 00:00:00.0409
+    Last step completed in 00:00:00.1007
 </buildStep>
 <buildStep step="CopyingWebsiteFiles">
 Copying website files to output folder...
 
 Copied 170 files for the website content
-    Last step completed in 00:00:00.0768
+    Last step completed in 00:00:00.0718
 </buildStep>
 <buildStep step="CleanIntermediates">
 Removing intermediate files...
-    Last step completed in 00:00:00.0239
+    Last step completed in 00:00:00.0229
 </buildStep>
 <buildStep step="Completed">
 
-Build completed successfully at 9/14/2024 11:59:51 AM.  Total time: 00:00:05.3511
+Build completed successfully at 9/14/2024 12:05:33 PM.  Total time: 00:00:05.4530
 
 </buildStep>
 </shfbBuild>
