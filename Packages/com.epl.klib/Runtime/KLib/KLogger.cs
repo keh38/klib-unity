@@ -8,12 +8,14 @@ namespace KLib
 {
     /// <summary>
     /// Simple logging utility
-    /// <remarks>Creates a persistent singleton MonoBehavior that receives a copy of the UnityEngine.Debug messages and stores them to file.
+    /// </summary>
+    /// <remarks>Creates a persistent singleton MonoBehavior that receives a copy of the UnityEngine.Debug messages and stores them to file.</remarks>
+    /// <example>
+    /// The following example shows typical usage.
     /// <code language="c#">
     /// KLogger.Create(path).StartLogging();
     /// </code>
-    /// </remarks>
-    /// </summary>
+    ///</example>
     public class KLogger : MonoBehaviour
     {
         /// <summary>
@@ -93,7 +95,7 @@ namespace KLib
         }
 
         /// <summary>
-        /// Convenience methods that prepends "[Debug]" to beginning of message
+        /// Convenience method that prepends "[Debug]" to beginning of message to create a Debug level
         /// </summary>
         /// <remarks>Unity's LogType does not contain a "Debug" level. This is a simple workaround to provide that functionality.</remarks>
         /// <param name="message">Debug-level message to log</param>

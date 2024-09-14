@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shfbBuild product="Sandcastle Help File Builder and Tools" version="2024.2.18.0" projectFile="D:\Development\klib-unity\Documentation\Documentation.shfbproj" started="9/14/2024 11:51:26 AM">
+<buildStep step="Initializing">
+The Sandcastle tools are located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder&#39;
+Locating components in the following folder(s):
+    D:\Development\klib-unity\Documentation
+    C:\ProgramData\EWSoftware\Sandcastle Help File Builder\Components and Plug-Ins
+    C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components
+Using framework reflection data for &#39;.NET Framework 4.7.2&#39; located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Data\.NETFramework&#39;
+Using presentation style &#39;Default2022&#39; located in &#39;C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022&#39;
+Loading and initializing plug-ins...
+Website Table of Contents Generator Version 2024.2.18.0
+Copyright &#169; 2006-2024, Eric Woodruff, All Rights Reserved
+-------------------------------
+Clearing any prior web/markdown output...
+</buildStep>
+<buildStep step="ValidatingDocumentationSources">
+Validating and copying documentation source information
+Source: D:\Development\klib-unity\Temp\bin\Debug\KLib.Network.dll
+    Found assembly &#39;D:\Development\klib-unity\Temp\bin\Debug\KLib.Network.dll&#39;
+Source: D:\Development\klib-unity\Temp\bin\Debug\KLib.Network.xml
+Source: D:\Development\klib-unity\Temp\bin\Debug\KLib.dll
+    Found assembly &#39;D:\Development\klib-unity\Temp\bin\Debug\KLib.dll&#39;
+Source: D:\Development\klib-unity\Temp\bin\Debug\KLib.xml
+
+References to include:
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+
+Copying XML comments files
+    D:\Development\klib-unity\Temp\bin\Debug\KLib.Network.xml -&gt; D:\Development\klib-unity\Documentation\Help\Working\KLib.Network.xml
+    D:\Development\klib-unity\Temp\bin\Debug\KLib.xml -&gt; D:\Development\klib-unity\Documentation\Help\Working\KLib.xml
+</buildStep>
+<buildStep step="GenerateSharedContent">
+Generating shared content files (en-US, English (United States))...
+    Last step completed in 00:00:00.0010
+</buildStep>
+<buildStep step="GenerateApiFilter">
+Generating API filter for MRefBuilder...
+    Last step completed in 00:00:00.0000
+</buildStep>
+<buildStep step="GenerateReflectionInfo">
+Generating reflection information...
+[C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\MSBuild.exe - GenerateRefInfo-fb563b08-d980-4e96-b168-a6195dfbcbbd.proj]
+Build started 9/14/2024 11:51:27 AM.
+Project &quot;D:\Development\klib-unity\Documentation\Help\Working\GenerateRefInfo-fb563b08-d980-4e96-b168-a6195dfbcbbd.proj&quot; on node 1 (default targets).
+PrepareForBuild:
+  Creating directory &quot;obj\Debug\&quot;.
+GenerateBindingRedirects:
+  No suggested binding redirects from ResolveAssemblyReferences.
+GenerateRefInfo:
+  Microsoft.Build (v15.9.21+g9802d43bc3)
+  c Microsoft Corporation. All rights reserved.
+  No source code context base path specified.  Source context information is unavailable.
+  Loaded 2 assemblies for reflection and 2 dependency assemblies.
+  Wrote information on 2 namespaces, 6 types, and 69 members
+  Merging duplicate type and member information
+  Merged 0 duplicate type(s) and 0 duplicate member(s)
+Done Building Project &quot;D:\Development\klib-unity\Documentation\Help\Working\GenerateRefInfo-fb563b08-d980-4e96-b168-a6195dfbcbbd.proj&quot; (default targets).
+    Last step completed in 00:00:00.4546
+</buildStep>
+<buildStep step="ApplyDocumentModel">
+Applying document model to reflection output...
+    Last step completed in 00:00:00.0040
+</buildStep>
+<buildStep step="AddNamespaceGroups">
+Adding namespace group entries...
+Added 0 namespace group entries
+    Last step completed in 00:00:00.0030
+</buildStep>
+<buildStep step="AddApiTopicFilenames">
+Adding topic filenames to API members...
+    Last step completed in 00:00:00.0020
+</buildStep>
+<buildStep step="GenerateApiTopicManifest">
+Generating API topic manifest...
+    Last step completed in 00:00:00.0020
+</buildStep>
+<buildStep step="GenerateNamespaceSummaries">
+Generating namespace summary information...
+    Last step completed in 00:00:00.0020
+</buildStep>
+<buildStep step="CopyConceptualContent">
+Copying conceptual content...
+Checking for token files...
+Checking for code snippets files...
+Copying images and creating the media map file...
+Generating conceptual topic files
+    Parsing topic file &#39;D:\Development\klib-unity\Documentation\Content\Welcome.aml&#39;
+    D:\Development\klib-unity\Documentation\Content\Welcome.aml -&gt; D:\Development\klib-unity\Documentation\Help\Working\ddueXml\c4c048c7-aae9-4dd2-856b-e0662110683e.xml
+    Last step completed in 00:00:00.0060
+</buildStep>
+<buildStep step="CreateConceptualTopicConfigs">
+Creating conceptual topic configuration files...
+    Companion files
+    _ContentMetadata_.xml
+    Merging topic IDs into reference topic manifest file
+    Last step completed in 00:00:00.0020
+</buildStep>
+<buildStep step="CopyAdditionalContent">
+Copying additional content files...
+D:\Development\klib-unity\Documentation\icons\Help.png -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\icons\Help.png
+    Last step completed in 00:00:00.0020
+</buildStep>
+<buildStep step="MergeTablesOfContents">
+Merging conceptual and additional tables of contents...
+    Last step completed in 00:00:00.0000
+</buildStep>
+<buildStep step="GenerateIntermediateTableOfContents">
+Generating intermediate table of contents file for API content...
+Generating conceptual content intermediate TOC file...
+    Last step completed in 00:00:00.0030
+</buildStep>
+<buildStep step="CreateBuildAssemblerConfigs">
+Creating Sandcastle configuration files...
+    Last step completed in 00:00:00.0618
+</buildStep>
+<buildStep step="CombiningIntermediateTocFiles">
+Combining conceptual and API intermediate TOC files...
+    Last step completed in 00:00:00.0010
+</buildStep>
+<buildStep step="MergeCustomConfigs">
+Merging custom build component configurations
+D:\Development\klib-unity\Documentation\Help\Working\BuildAssembler.config
+  Updating reference topic configurations.
+  Updating conceptual topic configurations.
+    Removing unused ExampleComponent.
+    Last step completed in 00:00:00.0030
+</buildStep>
+<buildStep step="BuildTopics">
+Building help topics...
+<plugIn name="Website Table of Contents Generator" behavior="Before" priority="1000">
+Loading TOC info and adding unique IDs to parent nodes
+</plugIn>Loading configuration...
+Processing topics...
+SHFB: Warning BE0066: ResolveConceptualLinksComponent: [c4c048c7-aae9-4dd2-856b-e0662110683e] Unknown conceptual link target &#39;8ec1c382-065a-47b7-a339-bbe3bf7a6b50&#39;.
+SHFB: Warning BE0066: ShowMissingComponent: [T:KLib.FileIO] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [F:KLib.FileIO._stream] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.AppendTextFile(System.String,System.String)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.AppendTextFile(System.String,System.String)] Missing &lt;param name=&quot;path&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.AppendTextFile(System.String,System.String)] Missing &lt;param name=&quot;text&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.CloseBinarySerialization] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.CombinePaths(System.String[])] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.CombinePaths(System.String[])] Missing &lt;returns&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.CombinePaths(System.String[])] Missing &lt;param name=&quot;paths&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.Copy(System.String,System.String)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.Copy(System.String,System.String)] Missing &lt;param name=&quot;from&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.Copy(System.String,System.String)] Missing &lt;param name=&quot;to&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.CopyUnique(System.String,System.String)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.CopyUnique(System.String,System.String)] Missing &lt;param name=&quot;from&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.CopyUnique(System.String,System.String)] Missing &lt;param name=&quot;to&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.CreateBinarySerialization(System.String)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.CreateBinarySerialization(System.String)] Missing &lt;param name=&quot;path&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.CreateFolder(System.String)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.CreateFolder(System.String)] Missing &lt;param name=&quot;folder&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.DeserializeFromBinary``1] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.DeserializeFromBinary``1] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.DeserializeFromBinary``1] Missing &lt;returns&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.DeserializeFromBinary``1(System.String)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.DeserializeFromBinary``1(System.String)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.DeserializeFromBinary``1(System.String)] Missing &lt;returns&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.DeserializeFromBinary``1(System.String)] Missing &lt;param name=&quot;path&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.DumpF32(System.String,System.Single[])] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.DumpF32(System.String,System.Single[])] Missing &lt;param name=&quot;fn&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.DumpF32(System.String,System.Single[])] Missing &lt;param name=&quot;data&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ExtractJsonObject``1(System.String,System.String,System.String)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ExtractJsonObject``1(System.String,System.String,System.String)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ExtractJsonObject``1(System.String,System.String,System.String)] Missing &lt;returns&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ExtractJsonObject``1(System.String,System.String,System.String)] Missing &lt;param name=&quot;json&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ExtractJsonObject``1(System.String,System.String,System.String)] Missing &lt;param name=&quot;name&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ExtractJsonObject``1(System.String,System.String,System.String)] Missing &lt;param name=&quot;next&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ExtractJsonObjectString(System.String,System.String,System.String)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ExtractJsonObjectString(System.String,System.String,System.String)] Missing &lt;returns&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ExtractJsonObjectString(System.String,System.String,System.String)] Missing &lt;param name=&quot;json&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ExtractJsonObjectString(System.String,System.String,System.String)] Missing &lt;param name=&quot;name&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ExtractJsonObjectString(System.String,System.String,System.String)] Missing &lt;param name=&quot;next&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.GetDateFromPropfindResponse(System.String,System.String)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.GetDateFromPropfindResponse(System.String,System.String)] Missing &lt;returns&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.GetDateFromPropfindResponse(System.String,System.String)] Missing &lt;param name=&quot;response&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.GetDateFromPropfindResponse(System.String,System.String)] Missing &lt;param name=&quot;property&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.JSONDeserialize``1(System.String)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.JSONDeserialize``1(System.String)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.JSONDeserialize``1(System.String)] Missing &lt;returns&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.JSONDeserialize``1(System.String)] Missing &lt;param name=&quot;path&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.JSONDeserializeFromString``1(System.String)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.JSONDeserializeFromString``1(System.String)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.JSONDeserializeFromString``1(System.String)] Missing &lt;returns&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.JSONDeserializeFromString``1(System.String)] Missing &lt;param name=&quot;text&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.JSONSerialize``1(``0,System.String)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.JSONSerialize``1(``0,System.String)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.JSONSerialize``1(``0,System.String)] Missing &lt;param name=&quot;t&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.JSONSerialize``1(``0,System.String)] Missing &lt;param name=&quot;path&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.JSONSerializeToString``1(``0)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.JSONSerializeToString``1(``0)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.JSONSerializeToString``1(``0)] Missing &lt;returns&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.JSONSerializeToString``1(``0)] Missing &lt;param name=&quot;t&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.JSONStringAdd(System.String,System.String,System.String)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.JSONStringAdd(System.String,System.String,System.String)] Missing &lt;returns&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.JSONStringAdd(System.String,System.String,System.String)] Missing &lt;param name=&quot;json&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.JSONStringAdd(System.String,System.String,System.String)] Missing &lt;param name=&quot;name&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.JSONStringAdd(System.String,System.String,System.String)] Missing &lt;param name=&quot;val&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.OpenBinarySerialization(System.String)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.OpenBinarySerialization(System.String)] Missing &lt;param name=&quot;path&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ParseWeb(System.String)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ParseWeb(System.String)] Missing &lt;returns&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ParseWeb(System.String)] Missing &lt;param name=&quot;xmlString&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ParseWebFiles(System.String)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ParseWebFiles(System.String)] Missing &lt;returns&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ParseWebFiles(System.String)] Missing &lt;param name=&quot;xmlString&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ParseWebFolders(System.String)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ParseWebFolders(System.String)] Missing &lt;returns&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ParseWebFolders(System.String)] Missing &lt;param name=&quot;xmlString&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ReadDouble(System.IO.Stream)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ReadDouble(System.IO.Stream)] Missing &lt;returns&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ReadDouble(System.IO.Stream)] Missing &lt;param name=&quot;s&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ReadString(System.IO.Stream,System.Int32)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ReadString(System.IO.Stream,System.Int32)] Missing &lt;returns&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ReadString(System.IO.Stream,System.Int32)] Missing &lt;param name=&quot;s&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ReadString(System.IO.Stream,System.Int32)] Missing &lt;param name=&quot;len&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ReadTextFile(System.String)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ReadTextFile(System.String)] Missing &lt;returns&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ReadTextFile(System.String)] Missing &lt;param name=&quot;path&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ReadUInt(System.IO.Stream)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ReadUInt(System.IO.Stream)] Missing &lt;returns&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ReadUInt(System.IO.Stream)] Missing &lt;param name=&quot;s&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ReadUShort(System.IO.Stream)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ReadUShort(System.IO.Stream)] Missing &lt;returns&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.ReadUShort(System.IO.Stream)] Missing &lt;param name=&quot;s&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.SerializeToBinary``1(``0)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.SerializeToBinary``1(``0)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.SerializeToBinary``1(``0)] Missing &lt;param name=&quot;t&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.SerializeToBinary``1(``0,System.String)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.SerializeToBinary``1(``0,System.String)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.SerializeToBinary``1(``0,System.String)] Missing &lt;param name=&quot;t&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.SerializeToBinary``1(``0,System.String)] Missing &lt;param name=&quot;path&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.WriteTextFile(System.String,System.String)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.WriteTextFile(System.String,System.String)] Missing &lt;param name=&quot;path&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.WriteTextFile(System.String,System.String)] Missing &lt;param name=&quot;text&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.XmlDeserialize``1(System.String)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.XmlDeserialize``1(System.String)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.XmlDeserialize``1(System.String)] Missing &lt;returns&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.XmlDeserialize``1(System.String)] Missing &lt;param name=&quot;path&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.XmlDeserializeFromString``1(System.String)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.XmlDeserializeFromString``1(System.String)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.XmlDeserializeFromString``1(System.String)] Missing &lt;returns&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.XmlDeserializeFromString``1(System.String)] Missing &lt;param name=&quot;data&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.XmlDeserializeFromTextAsset``1(System.String)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.XmlDeserializeFromTextAsset``1(System.String)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.XmlDeserializeFromTextAsset``1(System.String)] Missing &lt;returns&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.XmlDeserializeFromTextAsset``1(System.String)] Missing &lt;param name=&quot;assetPath&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.XmlSerialize``1(``0,System.String)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.XmlSerialize``1(``0,System.String)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.XmlSerialize``1(``0,System.String)] Missing &lt;param name=&quot;t&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.XmlSerialize``1(``0,System.String)] Missing &lt;param name=&quot;path&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.XmlSerializeToString``1(``0)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.XmlSerializeToString``1(``0)] Missing &lt;typeparam name=&quot;T&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.XmlSerializeToString``1(``0)] Missing &lt;returns&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.FileIO.XmlSerializeToString``1(``0)] Missing &lt;param name=&quot;t&quot;/&gt; documentation
+SHFB: Warning BE0066: ResolveReferenceLinksComponent: [T:KLib.KLogger] Unknown reference link target &#39;T:UnityEngine.Object&#39;.
+SHFB: Warning BE0066: ResolveReferenceLinksComponent: [T:KLib.KLogger] Unknown reference link target &#39;T:UnityEngine.Component&#39;.
+SHFB: Warning BE0066: ResolveReferenceLinksComponent: [T:KLib.KLogger] Unknown reference link target &#39;T:UnityEngine.Behaviour&#39;.
+SHFB: Warning BE0066: ResolveReferenceLinksComponent: [T:KLib.KLogger] Unknown reference link target &#39;T:UnityEngine.MonoBehaviour&#39;.
+SHFB: Warning BE0066: ShowMissingComponent: [N:KLib.Network] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.KTcpListener.CloseListener] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.KTcpListener.CloseTcpClient] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.KTcpListener.Pending] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.KTcpListener.Pending] Missing &lt;returns&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.KTcpListener.ReadByteArrayFromInputStream] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.KTcpListener.ReadByteArrayFromInputStream] Missing &lt;returns&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.KTcpListener.ReadInt32FromInputStream] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.KTcpListener.ReadInt32FromInputStream] Missing &lt;returns&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.KTcpListener.ReadStringFromInputStream] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.KTcpListener.ReadStringFromInputStream] Missing &lt;returns&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.KTcpListener.SendAcknowledgement] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.KTcpListener.SendAcknowledgement(System.Boolean)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.KTcpListener.SendAcknowledgement(System.Boolean)] Missing &lt;param name=&quot;success&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.KTcpListener.StartListener(System.String,System.Int32)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.KTcpListener.StartListener(System.String,System.Int32)] Missing &lt;returns&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.KTcpListener.StartListener(System.String,System.Int32)] Missing &lt;param name=&quot;address&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.KTcpListener.StartListener(System.String,System.Int32)] Missing &lt;param name=&quot;port&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.KTcpListener.WriteByteArray(System.Byte[])] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.KTcpListener.WriteByteArray(System.Byte[])] Missing &lt;param name=&quot;byteArray&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.KTcpListener.WriteInt32ToOutputStream(System.Int32)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.KTcpListener.WriteInt32ToOutputStream(System.Int32)] Missing &lt;param name=&quot;value&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.KTcpListener.WriteIntToOutputStream(System.Int32)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.KTcpListener.WriteIntToOutputStream(System.Int32)] Missing &lt;param name=&quot;value&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.KTcpListener.WriteStringAsByteArray(System.String)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.KTcpListener.WriteStringAsByteArray(System.String)] Missing &lt;param name=&quot;s&quot;/&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.KTcpListener.WriteStringToOutputStream(System.String)] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.KTcpListener.WriteStringToOutputStream(System.String)] Missing &lt;param name=&quot;s&quot;/&gt; documentation
+SHFB: Warning BE0066: ResolveReferenceLinksComponent: [T:KLib.Network.NetworkDiscoveryServer] Unknown reference link target &#39;T:UnityEngine.Object&#39;.
+SHFB: Warning BE0066: ResolveReferenceLinksComponent: [T:KLib.Network.NetworkDiscoveryServer] Unknown reference link target &#39;T:UnityEngine.Component&#39;.
+SHFB: Warning BE0066: ResolveReferenceLinksComponent: [T:KLib.Network.NetworkDiscoveryServer] Unknown reference link target &#39;T:UnityEngine.Behaviour&#39;.
+SHFB: Warning BE0066: ResolveReferenceLinksComponent: [T:KLib.Network.NetworkDiscoveryServer] Unknown reference link target &#39;T:UnityEngine.MonoBehaviour&#39;.
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.NetworkUtils.FindServerAddress] Missing &lt;summary&gt; documentation
+SHFB: Warning BE0066: ShowMissingComponent: [M:KLib.Network.NetworkUtils.FindServerAddress] Missing &lt;returns&gt; documentation
+Processed 90 topic(s)
+161 warning(s)
+CopyFromIndexComponent: &quot;metadata&quot; in-memory cache entries used: 1 of 15.
+ResolveArtLinksComponent: Copying media files...
+CopyFromIndexComponent: &quot;reflection&quot; in-memory cache entries used: 4 of 15.
+CopyFromIndexComponent: &quot;comments&quot; in-memory cache entries used: 2 of 30.
+<plugIn name="Website Table of Contents Generator" behavior="After" priority="1000">
+Generating TOC fragment files
+</plugIn>    Last step completed in 00:00:04.3796
+</buildStep>
+<buildStep step="CopyStandardHelpContent">
+Copying standard help content...
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\css\bulma.css -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\css\bulma.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\css\bulma.css.map -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\css\bulma.css.map
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\css\bulma.min.css -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\css\bulma.min.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\css\font-awesome.css -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\css\font-awesome.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\css\font-awesome.min.css -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\css\font-awesome.min.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\css\ja-JP.css -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\css\ja-JP.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\css\ko-KR.css -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\css\ko-KR.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\css\presentationStyle.css -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\css\presentationStyle.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\css\vs.min.css -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\css\vs.min.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\css\zh-CN.css -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\css\zh-CN.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\css\zh-TW.css -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\css\zh-TW.css
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\icons\favicon.ico -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\icons\favicon.ico
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\scripts\clipboard.min.js -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\scripts\clipboard.min.js
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\scripts\highlight.min.js -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\scripts\highlight.min.js
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\scripts\jquery-3.5.1.min.js -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\scripts\jquery-3.5.1.min.js
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\scripts\presentationStyle.js -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\scripts\presentationStyle.js
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\webfonts\fa-brands-400.ttf -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\webfonts\fa-brands-400.ttf
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\webfonts\fa-brands-400.woff2 -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\webfonts\fa-brands-400.woff2
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\webfonts\fa-regular-400.ttf -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\webfonts\fa-regular-400.ttf
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\webfonts\fa-regular-400.woff2 -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\webfonts\fa-regular-400.woff2
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\webfonts\fa-solid-900.ttf -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\webfonts\fa-solid-900.ttf
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\webfonts\fa-solid-900.woff2 -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\webfonts\fa-solid-900.woff2
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\webfonts\fa-v4compatibility.ttf -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\webfonts\fa-v4compatibility.ttf
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\webfonts\fa-v4compatibility.woff2 -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\webfonts\fa-v4compatibility.woff2
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\RootWebsiteContent\GeneralError.html -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\GeneralError.html
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\RootWebsiteContent\index.html -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\index.html
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\RootWebsiteContent\PageNotFound.html -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\PageNotFound.html
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\RootWebsiteContent\search.html -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\search.html
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\RootWebsiteContent\SearchHelp.aspx -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\SearchHelp.aspx
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\RootWebsiteContent\SearchHelp.inc.php -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\SearchHelp.inc.php
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\RootWebsiteContent\SearchHelp.php -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\SearchHelp.php
+C:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Components\Default2022\RootWebsiteContent\Web.Config -&gt; D:\Development\klib-unity\Documentation\Help\Working\Output\Website\Web.Config
+    Last step completed in 00:00:00.0798
+</buildStep>
+<buildStep step="GenerateFullTextIndex">
+Generating full-text index for the website...
+
+    Last step completed in 00:00:00.1396
+</buildStep>
+<buildStep step="CopyingWebsiteFiles">
+Copying website files to output folder...
+
+Copied 170 files for the website content
+    Last step completed in 00:00:00.0688
+</buildStep>
+<buildStep step="CleanIntermediates">
+Removing intermediate files...
+    Last step completed in 00:00:00.0249
+</buildStep>
+<buildStep step="Completed">
+
+Build completed successfully at 9/14/2024 11:51:32 AM.  Total time: 00:00:05.7458
+
+</buildStep>
+</shfbBuild>
