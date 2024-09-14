@@ -33,10 +33,12 @@
     <DocumentationSources>
       <DocumentationSource sourceFile="..\Temp\bin\Debug\KLib.Network.dll" xmlns="" />
       <DocumentationSource sourceFile="..\Temp\bin\Debug\KLib.Network.xml" xmlns="" />
+      <DocumentationSource sourceFile="..\Temp\bin\Debug\KLib.dll" />
+      <DocumentationSource sourceFile="..\Temp\bin\Debug\KLib.xml" />
     </DocumentationSources>
-    <HelpFileFormat>HtmlHelp1, Website</HelpFileFormat>
+    <HelpFileFormat>Markdown</HelpFileFormat>
     <SyntaxFilters>C#</SyntaxFilters>
-    <PresentationStyle>VS2013</PresentationStyle>
+    <PresentationStyle>Markdown</PresentationStyle>
     <CleanIntermediates>True</CleanIntermediates>
     <KeepLogFile>True</KeepLogFile>
     <DisableCodeBlockComponent>False</DisableCodeBlockComponent>

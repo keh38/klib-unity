@@ -7,20 +7,45 @@ using UnityEngine;
 namespace KLib
 {
     /// <summary>
-    /// 
+    /// Simple logging utility
+    /// <remarks>Creates a persistent singleton MonoBehavior that receives a copy of the UnityEngine.Debug messages and stores them to file.
+    /// <code language="c#">
+    /// KLogger.Create(path).StartLogging();
+    /// </code>
+    /// </remarks>
     /// </summary>
     public class KLogger : MonoBehaviour
     {
-        public enum Level { Default, Verbose };
+        /// <summary>
+        /// Logging level
+        /// </summary>
+        public enum Level {
+            /// <summary>
+            /// Does not include Debug
+            /// </summary>
+            Default,
+            /// <summary>
+            /// All messages
+            /// </summary>
+            Verbose };
 
         private string _logPath;
         private StringBuilder _log;
 
+        /// <summary>
+        /// Minimum level of message to log
+        /// </summary>
         public Level MinimumLevel { set; get; } = Level.Default;
+        /// <summary>
+        /// Number of days log files are retained.
+        /// </summary>
         public float RetainDays { set; get; } = 14;
 
         // Make singleton
         private static KLogger _instance;
+        /// <summary>
+        /// Returns instance of KLogger. Creates one if it doesn't exist.
+        /// </summary>
         public static KLogger Log
         {
             get
@@ -42,7 +67,14 @@ namespace KLib
             }
         }
 
-        public static KLogger Create(string logPath, Level minimumLevel, float retainDays)
+        /// <summary>
+        /// Create and initialize logger.
+        /// </summary>
+        /// <param name="logPath">path to log</param>
+        /// <param name="minimumLevel">sets <see cref="MinimumLevel"/></param>
+        /// <param name="retainDays">set <see cref="RetainDays"/></param>
+        /// <returns>Instance of KLogger</returns>
+        public static KLogger Create(string logPath, Level minimumLevel = Level.Default, float retainDays = 14)
         {
             Log._logPath = logPath.Replace(".txt", $"-{System.DateTime.Now.ToString("yyyyMMdd")}.txt");
             Log.MinimumLevel = minimumLevel;
@@ -60,6 +92,11 @@ namespace KLib
             return Log;
         }
 
+        /// <summary>
+        /// Convenience methods that prepends "[Debug]" to beginning of message
+        /// </summary>
+        /// <remarks>Unity's LogType does not contain a "Debug" level. This is a simple workaround to provide that functionality.</remarks>
+        /// <param name="message">Debug-level message to log</param>
         public static void Debug(string message)
         {
             UnityEngine.Debug.Log("[Debug] " + message);
@@ -70,11 +107,17 @@ namespace KLib
             DontDestroyOnLoad(this);
         }
 
-        public void StartLogging(string logPath)
+        /// <summary>
+        /// Attaches KLogger to UnityEngine.Debug messages
+        /// </summary>
+        public void StartLogging()
         {
             Application.logMessageReceivedThreaded += HandleLog;
         }
 
+        /// <summary>
+        /// Detaches KLogger from UnityEngine.Debug messages
+        /// </summary>
         public void StopLogging()
         {
             Application.logMessageReceivedThreaded -= HandleLog;
