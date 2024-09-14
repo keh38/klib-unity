@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace KLib
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class KLogger : MonoBehaviour
     {
         public enum Level { Default, Verbose };
@@ -14,6 +17,7 @@ namespace KLib
         private StringBuilder _log;
 
         public Level MinimumLevel { set; get; } = Level.Default;
+        public float RetainDays { set; get; } = 14;
 
         // Make singleton
         private static KLogger _instance;
@@ -38,31 +42,40 @@ namespace KLib
             }
         }
 
+        public static KLogger Create(string logPath, Level minimumLevel, float retainDays)
+        {
+            Log._logPath = logPath.Replace(".txt", $"-{System.DateTime.Now.ToString("yyyyMMdd")}.txt");
+            Log.MinimumLevel = minimumLevel;
+            Log.RetainDays = retainDays;
+
+            Log.PurgeLogs(logPath);
+
+            var folder = Path.GetDirectoryName(logPath);
+            if (!Directory.Exists(folder))
+            {
+                Directory.CreateDirectory(folder);
+            }
+            Log._log = new StringBuilder(1000);
+
+            return Log;
+        }
+
         public static void Debug(string message)
         {
             UnityEngine.Debug.Log("[Debug] " + message);
         }
 
-        public void Init()
+        private void Init()
         {
             DontDestroyOnLoad(this);
         }
 
         public void StartLogging(string logPath)
         {
-            _logPath = logPath.Replace(".txt", $"-{System.DateTime.Now.ToString("yyyyMMdd_HHmmss")}.txt"); ;
-
-            var folder = Path.GetDirectoryName(_logPath);
-            if (!Directory.Exists(folder))
-            {
-                Directory.CreateDirectory(folder);
-            }
-
-            _log = new StringBuilder(1000);
             Application.logMessageReceivedThreaded += HandleLog;
         }
 
-        void StopLogging()
+        public void StopLogging()
         {
             Application.logMessageReceivedThreaded -= HandleLog;
             FlushLog();
@@ -102,7 +115,22 @@ namespace KLib
             {
                 FlushLog();
             }
+        }
 
+        void PurgeLogs(string logPath)
+        {
+            var folder = Path.GetDirectoryName(logPath);
+            var pattern = Path.GetFileNameWithoutExtension(logPath) + "-*.txt";
+
+            foreach (var f in Directory.EnumerateFiles(folder, pattern))
+            {
+                var path = Path.Combine(folder, f);
+                var ct = File.GetCreationTime(path);
+                if ((System.DateTime.Now - ct).TotalDays > RetainDays)
+                {
+                    File.Delete(path);
+                }
+            }
         }
     }
 }
