@@ -18,7 +18,7 @@
     <Name>Documentation</Name>
     <!-- SHFB properties -->
     <FrameworkVersion>.NET Framework 4.7.2</FrameworkVersion>
-    <OutputPath>.\Help\</OutputPath>
+    <OutputPath>..\docs\</OutputPath>
     <HtmlHelpName>Documentation</HtmlHelpName>
     <Language>en-US</Language>
     <TransformComponentArguments>
@@ -33,10 +33,12 @@
     <DocumentationSources>
       <DocumentationSource sourceFile="..\Temp\bin\Debug\KLib.Network.dll" xmlns="" />
       <DocumentationSource sourceFile="..\Temp\bin\Debug\KLib.Network.xml" xmlns="" />
+      <DocumentationSource sourceFile="..\Temp\bin\Debug\KLib.dll" />
+      <DocumentationSource sourceFile="..\Temp\bin\Debug\KLib.xml" />
     </DocumentationSources>
-    <HelpFileFormat>HtmlHelp1, Website</HelpFileFormat>
+    <HelpFileFormat>Website</HelpFileFormat>
     <SyntaxFilters>C#</SyntaxFilters>
-    <PresentationStyle>VS2013</PresentationStyle>
+    <PresentationStyle>Default2022</PresentationStyle>
     <CleanIntermediates>True</CleanIntermediates>
     <KeepLogFile>True</KeepLogFile>
     <DisableCodeBlockComponent>False</DisableCodeBlockComponent>
@@ -48,11 +50,16 @@
     <NamingMethod>Guid</NamingMethod>
     <ContentPlacement>AboveNamespaces</ContentPlacement>
     <RootNamespaceContainer>True</RootNamespaceContainer>
-    <RootNamespaceTitle>KLib</RootNamespaceTitle>
-    <NamespaceGrouping>False</NamespaceGrouping>
+    <RootNamespaceTitle>Namespaces</RootNamespaceTitle>
+    <NamespaceGrouping>True</NamespaceGrouping>
     <MaximumGroupParts>2</MaximumGroupParts>
     <Preliminary>False</Preliminary>
     <SdkLinkTarget>Blank</SdkLinkTarget>
+    <VisibleItems>Protected, ProtectedInternalAsProtected, NonBrowsable</VisibleItems>
+    <NamespaceSummaries>
+      <NamespaceSummaryItem name="KLib" isDocumented="True" xmlns="">Summary for KLib</NamespaceSummaryItem>
+<NamespaceSummaryItem name="KLib.Network" isDocumented="True" xmlns="" /></NamespaceSummaries>
+    <WarnOnMissingSourceContext>False</WarnOnMissingSourceContext>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
 			 the build.  The others are optional common platform types that may appear. -->
@@ -74,13 +81,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Content" />
-    <Folder Include="Content\VersionHistory" />
     <Folder Include="icons" />
     <Folder Include="media" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\VersionHistory\v1.0.0.0.aml" />
-    <None Include="Content\VersionHistory\VersionHistory.aml" />
     <None Include="Content\Welcome.aml" />
   </ItemGroup>
   <ItemGroup>
