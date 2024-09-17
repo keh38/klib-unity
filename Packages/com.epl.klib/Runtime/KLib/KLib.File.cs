@@ -398,6 +398,28 @@ namespace KLib
             return JsonConvert.DeserializeObject<T>(objString);
         }
 
+        public static byte[] ToProtoBuf<T>(T obj)
+        {
+            byte[] pbuf;
+            using (var ms = new System.IO.MemoryStream())
+            {
+                Serializer.Serialize<T>(ms, obj);
+                pbuf = ms.ToArray();
+            }
+            return pbuf;
+        }
+
+        public static T FromProtoBuf<T>(byte[] pbuf)
+        {
+            T obj = default(T);
+            using (var ms = new System.IO.MemoryStream(pbuf))
+            {
+                obj = Serializer.Deserialize<T>(ms);
+            }
+
+            return obj;
+        }
+
 #if UNITY_EDITOR
         public static void DumpF32(string fn, float[] data)
         {

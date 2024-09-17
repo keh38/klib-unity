@@ -9,12 +9,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-<<<<<<< HEAD
     <RootNamespace></RootNamespace>
-=======
-    <RootNamespace>
-    </RootNamespace>
->>>>>>> 20914e9fc48addbf2e2a352721995f948147ab4f
     <ProjectGuid>{FCA7227B-C5C8-1C10-A9A6-A244C4FDB62D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -33,10 +28,6 @@
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169;USG0001</NoWarn>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
-<<<<<<< HEAD
-=======
-    <DocumentationFile>Temp\bin\Debug\KLib.xml</DocumentationFile>
->>>>>>> 20914e9fc48addbf2e2a352721995f948147ab4f
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -64,10 +55,7 @@
     <UnityVersion>2020.3.22f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-<<<<<<< HEAD
-=======
     <Compile Include="Packages\com.epl.klib\Runtime\KLib\KLogger.cs" />
->>>>>>> 20914e9fc48addbf2e2a352721995f948147ab4f
     <Compile Include="Packages\com.epl.klib\Runtime\KLib\KLib.File.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -886,8 +874,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-<<<<<<< HEAD
 </Project>
-=======
-</Project>
->>>>>>> 20914e9fc48addbf2e2a352721995f948147ab4f
