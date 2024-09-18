@@ -177,6 +177,19 @@ namespace KLib.Network
             return result;
         }
 
+
+        public T ReceiveProtoBuf<T>()
+        {
+            T val = default(T);
+            var bytes = ReadByteArrayFromInputStream();
+            if (bytes != null)
+            {
+                val = KLib.FileIO.FromProtoBuf<T>(bytes);
+            }
+
+            return val;
+        }
+
         public void SendAcknowledgement()
         {
             _theWriter.Write((int)1);
