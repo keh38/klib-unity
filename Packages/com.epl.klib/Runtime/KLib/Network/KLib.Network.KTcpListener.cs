@@ -77,6 +77,16 @@ namespace KLib.Network
             _network.Dispose();
         }
 
+        public void WriteString(string s)
+        {
+            using (NetworkStream theStream = _client.GetStream())
+            using (StreamWriter theWriter = new StreamWriter(theStream))
+            {
+                theWriter.Write(s);
+                theWriter.Flush();
+            }
+        }
+
         public void WriteStringToOutputStream(string s)
         {
             using (NetworkStream theStream = _client.GetStream())
