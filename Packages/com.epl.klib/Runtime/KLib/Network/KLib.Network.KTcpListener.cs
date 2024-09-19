@@ -146,6 +146,11 @@ namespace KLib.Network
             }
         }
 
+        public string ReadString()
+        {
+            return _theReader.ReadString();
+        }
+
         public string ReadStringFromInputStream()
         {
             string result = null;
