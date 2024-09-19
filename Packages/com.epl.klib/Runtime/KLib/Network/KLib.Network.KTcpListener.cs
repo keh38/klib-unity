@@ -77,26 +77,6 @@ namespace KLib.Network
             _network.Dispose();
         }
 
-        public void WriteString(string s)
-        {
-            using (NetworkStream theStream = _client.GetStream())
-            using (StreamWriter theWriter = new StreamWriter(theStream))
-            {
-                theWriter.Write(s);
-                theWriter.Flush();
-            }
-        }
-
-        public void WriteStringToOutputStream(string s)
-        {
-            using (NetworkStream theStream = _client.GetStream())
-            using (StreamWriter theWriter = new StreamWriter(theStream))
-            {
-                theWriter.WriteLine(s);
-                theWriter.Flush();
-            }
-        }
-
         public void WriteStringAsByteArray(string s)
         {
             var byteArray = System.Text.Encoding.UTF8.GetBytes(s);
@@ -130,28 +110,23 @@ namespace KLib.Network
             _theWriter.Flush();
         }
 
-        public void WriteInt32ToOutputStream(int value)
-        {
-            _theWriter.Write(value);
-            _theWriter.Flush();
-        }
+        //public void WriteInt32ToOutputStream(int value)
+        //{
+        //    _theWriter.Write(value);
+        //    _theWriter.Flush();
+        //}
 
-        public void WriteIntToOutputStream(int value)
-        {
-            using (NetworkStream theStream = _client.GetStream())
-            using (StreamWriter theWriter = new StreamWriter(theStream))
-            {
-                theWriter.Write(value);
-                theWriter.Flush();
-            }
-        }
+        //public void WriteIntToOutputStream(int value)
+        //{
+        //    using (NetworkStream theStream = _client.GetStream())
+        //    using (StreamWriter theWriter = new StreamWriter(theStream))
+        //    {
+        //        theWriter.Write(value);
+        //        theWriter.Flush();
+        //    }
+        //}
 
         public string ReadString()
-        {
-            return _theReader.ReadString();
-        }
-
-        public string ReadStringFromInputStream()
         {
             string result = null;
 
@@ -169,7 +144,7 @@ namespace KLib.Network
             return result;
         }
 
-        public byte[] ReadByteArrayFromInputStream()
+        public byte[] ReadByteArray()
         {
             byte[] result = null;
 
@@ -186,7 +161,7 @@ namespace KLib.Network
             return result;
         }
 
-        public int ReadInt32FromInputStream()
+        public int ReadInt32()
         {
             int result = _theReader.ReadInt32();
             return result;
@@ -196,7 +171,7 @@ namespace KLib.Network
         public T ReceiveProtoBuf<T>()
         {
             T val = default(T);
-            var bytes = ReadByteArrayFromInputStream();
+            var bytes = ReadByteArray();
             if (bytes != null)
             {
                 val = KLib.FileIO.FromProtoBuf<T>(bytes);
