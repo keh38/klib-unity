@@ -2,11 +2,7 @@
 using System.Collections.Generic;
 
 using System;
-#if UNITY_METRO && !UNITY_EDITOR
-using LegacySystem.IO;
-#else
 using System.IO;
-#endif
 
 using System.Reflection;
 using System.Xml; 
@@ -17,10 +13,10 @@ using Newtonsoft.Json.Converters;
 using ProtoBuf;
 
 namespace KLib
-{
+{ 
     public static class FileIO
     {
-        public static System.IO.Stream _stream = null;
+        public static Stream _stream = null;
 
         public static void JSONSerialize<T>(T t, string path)
         {
