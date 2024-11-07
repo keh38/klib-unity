@@ -1,7 +1,9 @@
 {
-    "name": "KLib.Math",
+    "name": "KLib.MSGraph",
     "rootNamespace": "KLib",
-    "references": [],
+    "references": [
+        "GUID:ad7fbea5928d36f4c8ba0f42a6c25925"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
