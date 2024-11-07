@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Packages\com.epl.klib\Runtime\KLib\KLogger.cs" />
     <Compile Include="Packages\com.epl.klib\Runtime\KLib\FileIO.cs" />
+    <Compile Include="Packages\com.epl.klib\Runtime\KLib\VersionInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Packages\com.epl.klib\Runtime\KLib\KLib.asmdef" />
