@@ -8,19 +8,19 @@
         private int _fix = 0;
 
         public VersionInfo() { }
-        public VersionInfo(string appName)
+        public VersionInfo(string name, int major, int minor, int fix)
         {
-            this._appName = appName;
+            _appName = name;
+            _major = major;
+            _minor = minor;
+            _fix = fix;
         }
 
-        public static string AppName
-        {
-            get { return new VersionInfo()._appName; }
-        }
+        public string AppName { get; private set; }
 
-        public static string SemanticVersion
+        public string SemanticVersion
         {
-            get { return new VersionInfo().ToString(); }
+            get { return this.ToString(); }
         }
 
         public override string ToString()
