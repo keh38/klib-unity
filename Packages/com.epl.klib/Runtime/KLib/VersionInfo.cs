@@ -8,6 +8,15 @@
         private int _fix = 0;
 
         public VersionInfo() { }
+        public VersionInfo(string appName)
+        {
+            this._appName = appName;
+        }
+
+        public static string AppName
+        {
+            get { return new VersionInfo()._appName; }
+        }
 
         public static string SemanticVersion
         {
