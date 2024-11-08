@@ -22,6 +22,7 @@ namespace KLib.MSGraph
         private static string _accessToken = "";
         private static string _basePath = "";
         private static string _lastError = "";
+        private static string _requestedFolder = "";
 
         private static int _timeOut = 5000;
 
@@ -52,6 +53,7 @@ namespace KLib.MSGraph
             _accessToken = "";
             _basePath = "";
             _lastError = "";
+            _requestedFolder = folder;
 
             try
             {
@@ -103,7 +105,7 @@ namespace KLib.MSGraph
             }
             else if (string.IsNullOrEmpty(_basePath))
             {
-                status = "Remote folder not found";
+                status = $"Remote folder '{_requestedFolder}' not found";
             }
 
             if (maxLen > 0)
