@@ -84,13 +84,13 @@ namespace KLib.MSGraph
             {
                 if (_lastError.StartsWith("No connection"))
                 {
-                    status = "No connection to network interface";
+                    status = "No connection to OneDrive Interface";
                 }
-                if (_lastError.StartsWith("Timeout"))
+                else if (_lastError.StartsWith("Timeout"))
                 {
                     status = "Network timeout";
                 }
-                if (_lastError.StartsWith("Failed to read"))
+                else if (_lastError.StartsWith("Failed to read"))
                 {
                     status = "Connection error--no WiFi?";
                 }

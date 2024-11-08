@@ -56,15 +56,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Packages\com.epl.klib\Runtime\KLib\MSGraph\MSGraphClient.cs" />
-    <Compile Include="Packages\com.epl.klib\Runtime\KLib\MSGraph\MSGraph.Data.Error.cs" />
-    <Compile Include="Packages\com.epl.klib\Runtime\KLib\MSGraph\MSGraph.Data.DriveItem.cs" />
-    <Compile Include="Packages\com.epl.klib\Runtime\KLib\MSGraph\MSGraph.Data.RemoteItem.cs" />
-    <Compile Include="Packages\com.epl.klib\Runtime\KLib\MSGraph\MSGraph.Data.DriveItemContainer.cs" />
-    <Compile Include="Packages\com.epl.klib\Runtime\KLib\MSGraph\MSGraph.Data.ErrorResource.cs" />
-    <Compile Include="Packages\com.epl.klib\Runtime\KLib\MSGraph\MSGraph.Data.FileSystemInfo.cs" />
     <Compile Include="Packages\com.epl.klib\Runtime\KLib\MSGraph\MSGraph.Data.UserInfo.cs" />
-    <Compile Include="Packages\com.epl.klib\Runtime\KLib\MSGraph\MSGraph.Data.FolderFacet.cs" />
+    <Compile Include="Packages\com.epl.klib\Runtime\KLib\MSGraph\MSGraph.Data.FileSystemInfo.cs" />
+    <Compile Include="Packages\com.epl.klib\Runtime\KLib\MSGraph\MSGraph.Data.Error.cs" />
+    <Compile Include="Packages\com.epl.klib\Runtime\KLib\MSGraph\MSGraph.Data.RemoteItem.cs" />
+    <Compile Include="Packages\com.epl.klib\Runtime\KLib\MSGraph\MSGraph.Data.ErrorResource.cs" />
     <Compile Include="Packages\com.epl.klib\Runtime\KLib\MSGraph\MSGraph.Data.ParentReference.cs" />
+    <Compile Include="Packages\com.epl.klib\Runtime\KLib\MSGraph\MSGraph.Data.FolderFacet.cs" />
+    <Compile Include="Packages\com.epl.klib\Runtime\KLib\MSGraph\MSGraph.Data.DriveItemContainer.cs" />
+    <Compile Include="Packages\com.epl.klib\Runtime\KLib\MSGraph\MSGraph.Data.DriveItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Packages\com.epl.klib\Runtime\KLib\MSGraph\KLib.MSGraph.asmdef" />
