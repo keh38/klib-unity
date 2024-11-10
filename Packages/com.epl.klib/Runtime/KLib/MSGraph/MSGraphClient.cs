@@ -22,7 +22,7 @@ namespace KLib.MSGraph
         private static string _accessToken = "";
         private static string _basePath = "";
         private static string _lastError = "";
-        private static string _requestedFolder = "";
+        private static string _requestedFolder = ""; 
 
         private static int _timeOut = 5000;
 
