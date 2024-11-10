@@ -31,8 +31,9 @@ namespace KLib.MSGraph
         public static bool IsConnected { get { return !string.IsNullOrEmpty(_accessToken); } }
         public static bool IsReady { get { return !string.IsNullOrEmpty(_accessToken) && !string.IsNullOrEmpty(_basePath); } }
         public static string LastError { get { return _lastError; } }
+        public static string RestartPath { set; get; } = "";
 
-        private static int _port = 52247;
+        private static int _port = 51234;
 
         private static bool ValidateServerCertificate(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
         {
@@ -152,8 +153,14 @@ namespace KLib.MSGraph
 
             try
             {
+                var cmd = "signin";
+                if (!string.IsNullOrEmpty(RestartPath))
+                {
+                    cmd += $";{RestartPath}";
+                }
+
                 tcpClient.Connect("127.0.0.1", _port);
-                var result = tcpClient.WriteStringToOutputStream("signin");
+                var result = tcpClient.WriteStringToOutputStream(cmd);
                 signedIn = (result == "OK");
             }
             catch (Exception ex)
