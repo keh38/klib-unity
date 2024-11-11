@@ -276,7 +276,7 @@ namespace KLib.MSGraph
             return content;
         }
 
-        private static string SendMessageToInterface(string msg)
+        public static string SendMessageToInterface(string msg)
         {
             var result = "";
             _lastError = "";
