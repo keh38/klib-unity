@@ -276,6 +276,39 @@ namespace KLib.MSGraph
             return content;
         }
 
+        private static string SendMessageToInterface(string msg)
+        {
+            var result = "";
+            _lastError = "";
+
+            KTcpClient tcpClient = new KTcpClient();
+
+            try
+            {
+                tcpClient.Connect("127.0.0.1", _port);
+                result = tcpClient.WriteStringToOutputStream(msg);
+                if (!result.Equals("OK"))
+                {
+                    result = "Error";
+                    _lastError = $"Bad response from OneDrive Interface.{Environment.NewLine}{Environment.NewLine}Rebooting is the easiest option.";
+                }
+            }
+            catch (Exception ex)
+            {
+                result = "Error";
+                if (ex.Message.StartsWith("No connection"))
+                {
+                    _lastError = $"OneDrive Interface may not be running.{Environment.NewLine}{Environment.NewLine}Rebooting is the easiest option.";
+                }
+                else
+                {
+                    _lastError = ex.Message;
+                }
+            }
+
+            return result;
+        }
+
         public static bool FileExists(string path)
         {
             bool exists = false;
@@ -417,7 +450,8 @@ namespace KLib.MSGraph
             {
                 url += $":/{itemPath}:";
             }
-            var result = GetHttpContentRemote(url);
+            //var result = GetHttpContentRemote(url);
+            var result = GetHttpContent(url);
 
             result = result.Replace("@microsoft.graph.downloadUrl", "url");
             var item = JsonConvert.DeserializeObject<DriveItem>(result);
@@ -604,7 +638,7 @@ namespace KLib.MSGraph
             return result != null;
         }
 
-        private static string GetHttpContentXXX(string cmd)
+        private static string GetHttpContent(string cmd)
         {
             // https://itecnote.com/tecnote/c-mono-https-webrequest-fails-with-the-authentication-or-decryption-has-failed/
             ServicePointManager.ServerCertificateValidationCallback = ValidateServerCertificate;
