@@ -55,9 +55,9 @@
     <UnityVersion>2020.3.22f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Packages\com.epl.klib\Runtime\KLib\Math\KLib.Math.GaussianRandom.cs" />
-    <Compile Include="Packages\com.epl.klib\Runtime\KLib\Math\KLib.KMath.cs" />
     <Compile Include="Packages\com.epl.klib\Runtime\KLib\Math\TruncatedNormalRandom.cs" />
+    <Compile Include="Packages\com.epl.klib\Runtime\KLib\Math\KLib.KMath.cs" />
+    <Compile Include="Packages\com.epl.klib\Runtime\KLib\Math\KLib.Math.GaussianRandom.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Packages\com.epl.klib\Runtime\KLib\Math\KLib.Math.asmdef" />

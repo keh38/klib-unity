@@ -78,7 +78,10 @@ namespace KLib
         /// <returns>Instance of KLogger</returns>
         public static KLogger Create(string logPath, Level minimumLevel = Level.Default, float retainDays = 14)
         {
-            Log._logPath = logPath.Replace(".txt", $"-{System.DateTime.Now.ToString("yyyyMMdd")}.txt");
+            string dateTag = $"-{System.DateTime.Now.ToString("yyyyMMdd")}";
+            var extension = Path.GetExtension(logPath);
+            Log._logPath = logPath.Replace(extension, $"{dateTag}{extension}");
+
             Log.MinimumLevel = minimumLevel;
             Log.RetainDays = retainDays;
 
