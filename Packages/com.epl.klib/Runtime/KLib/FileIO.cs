@@ -28,6 +28,11 @@ namespace KLib
             return JsonConvert.DeserializeObject<T>(ReadTextFile(path));
         }
 
+        public static string JSONSerializeToString<T>(T t, Newtonsoft.Json.Formatting formatting)
+        {
+            return JsonConvert.SerializeObject(t, formatting, new StringEnumConverter { CamelCaseText = false });
+        }
+
         public static string JSONSerializeToString<T>(T t)
         {
             return JsonConvert.SerializeObject(t, Newtonsoft.Json.Formatting.Indented, new StringEnumConverter { CamelCaseText = false });
