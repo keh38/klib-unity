@@ -132,7 +132,7 @@ namespace KLib
             FlushLog();
         }
 
-        void FlushLog()
+        public void FlushLog()
         {
             FileIO.AppendTextFile(_logPath, _log.ToString());
             _log.Clear();
