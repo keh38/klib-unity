@@ -85,13 +85,14 @@ namespace KLib
             Log.MinimumLevel = minimumLevel;
             Log.RetainDays = retainDays;
 
-            Log.PurgeLogs(logPath);
-
             var folder = Path.GetDirectoryName(logPath);
             if (!Directory.Exists(folder))
             {
                 Directory.CreateDirectory(folder);
             }
+
+            Log.PurgeLogs(logPath);
+
             Log._log = new StringBuilder(1000);
 
             return Log;
