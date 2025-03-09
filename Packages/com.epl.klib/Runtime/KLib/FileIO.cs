@@ -16,16 +16,18 @@ namespace KLib
 { 
     public static class FileIO
     {
+        public static string TimeStamp { get { return DateTime.Now.ToString("yyyyMMdd_HHmmss"); } }
+
         public static Stream _stream = null;
 
         public static void JSONSerialize<T>(T t, string path)
         {
-            WriteTextFile(path, JSONSerializeToString(t));
+            File.WriteAllText(path, JSONSerializeToString(t));
         }
 
         public static T JSONDeserialize<T>(string path)
         {
-            return JsonConvert.DeserializeObject<T>(ReadTextFile(path));
+            return JsonConvert.DeserializeObject<T>(File.ReadAllText(path));
         }
 
         public static string JSONSerializeToString<T>(T t, Newtonsoft.Json.Formatting formatting)
@@ -58,47 +60,13 @@ namespace KLib
             return json;
         }
 
-        public static void WriteTextFile(string path, string text)
-        {
-#if UNITY_EDITOR
-            using (System.IO.Stream s = File.Create(path))
-            {
-                byte[] b = System.Text.Encoding.ASCII.GetBytes(text);
-                s.Write(b, 0, b.Length);
-            }
-#else
-            using (System.IO.Stream s = File.Create(path))
-            {
-                byte[] b = System.Text.Encoding.UTF8.GetBytes(text);
-                s.Write(b, 0, b.Length);
-            }
-#endif
-        }
-
-        public static string ReadTextFile(string path)
-        {
-#if UNITY_EDITOR
-            return File.ReadAllText(path);
-#else
-            return File.ReadAllText(path);
-#endif
-        }
-
         public static void AppendTextFile(string path, string text)
         {
-#if UNITY_STANDALONE_WIN || UNITY_EDITOR
             using (System.IO.Stream s = File.Open(path, FileMode.Append))
             {
                 byte[] b = System.Text.Encoding.ASCII.GetBytes(text);
                 s.Write(b, 0, b.Length);
             }
-#else
-            using (System.IO.Stream s = File.OpenAppend(path))
-            {
-                byte[] b = System.Text.Encoding.UTF8.GetBytes(text);
-                s.Write(b, 0, b.Length);
-            }
-#endif
         }
 
         public static void XmlSerialize<T>(T t, string path)
@@ -113,11 +81,7 @@ namespace KLib
 		{
             T t;
 			XmlSerializer serializer = new XmlSerializer(typeof(T));
-#if !UNITY_METRO || UNITY_EDITOR
             using (System.IO.Stream s = File.OpenRead(path))
-#else
-            using (System.IO.Stream s = File.Open(path))
-#endif
             {
                 t = (T)serializer.Deserialize(s);
             }
@@ -248,21 +212,6 @@ namespace KLib
             File.Copy(from, to);
 #endif
         }
-
-        public static void CreateFolder(string folder)
-        {
-            if (!Directory.Exists(folder))
-            {
-#if !UNITY_METRO || UNITY_EDITOR
-                Directory.CreateDirectory(folder);
-#else
-                string localFolder = folder.Contains(DataFileLocations.DataRoot) ? folder.Substring(DataFileLocations.DataRoot.Length+1) : folder;
-                if (!Directory.CreateDirectory(localFolder))
-                    throw new ApplicationException("Could not create folder: " + localFolder);
-#endif
-            }
-        }
-
 
         public static List<string> ParseWebFiles(string xmlString)
         {
