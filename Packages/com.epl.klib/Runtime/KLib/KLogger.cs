@@ -33,6 +33,7 @@ namespace KLib
 
         private string _logPath;
         private StringBuilder _log;
+        private const string _dateFormat = "yyyy-MM-dd HH:mm:ss.fff";
 
         /// <summary>
         /// Minimum level of message to log
@@ -85,13 +86,14 @@ namespace KLib
             Log.MinimumLevel = minimumLevel;
             Log.RetainDays = retainDays;
 
-            Log.PurgeLogs(logPath);
-
             var folder = Path.GetDirectoryName(logPath);
             if (!Directory.Exists(folder))
             {
                 Directory.CreateDirectory(folder);
             }
+
+            Log.PurgeLogs(logPath);
+
             Log._log = new StringBuilder(1000);
 
             return Log;
@@ -147,12 +149,12 @@ namespace KLib
             {
                 if (MinimumLevel == Level.Verbose)
                 {
-                    _log.AppendLine($"{System.DateTime.Now} {logString}");
+                    _log.AppendLine($"{System.DateTime.Now.ToString(_dateFormat)} {logString}");
                 }
             }
             else
             {
-                _log.AppendLine($"{System.DateTime.Now} [{type}] {logString}");
+                _log.AppendLine($"{System.DateTime.Now.ToString(_dateFormat)} [{type}] {logString}");
                 if (type == LogType.Error || type == LogType.Exception)
                 {
                     _log.AppendLine(stackTrace);
