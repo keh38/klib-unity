@@ -1,12 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
 using System.Collections.Generic;
-
-using System;
 using System.IO;
-
-using System.Reflection;
+using System.Linq;
 using System.Xml; 
 using System.Xml.Serialization;
+
+using UnityEngine;
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -19,6 +18,15 @@ namespace KLib
         public static string TimeStamp { get { return DateTime.Now.ToString("yyyyMMdd_HHmmss"); } }
 
         public static Stream _stream = null;
+
+        public static List<string> EnumerateFolderNames(string rootFolder)
+        {
+            var folders = new List<string>(Directory.GetDirectories(rootFolder))
+                .Select(x => Path.GetFileName(x))
+                .ToList();
+            folders.Sort();
+            return folders;
+        }
 
         public static void JSONSerialize<T>(T t, string path)
         {
