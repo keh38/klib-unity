@@ -39,6 +39,7 @@ namespace KLib.MSGraph
 
         static string _graphAPIEndpoint = "https://graph.microsoft.com/v1.0/me";
 
+        public static bool IsReady { get { return GetConnectionStatus() == ConnectionStatus.Ready; } }
         public static string LastError { get { return _lastError; } }
         public static string RestartPath { set; get; } = "";
 
