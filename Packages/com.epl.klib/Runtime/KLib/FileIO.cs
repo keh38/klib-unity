@@ -62,7 +62,7 @@ namespace KLib
 
         public static void AppendTextFile(string path, string text)
         {
-            using (System.IO.Stream s = File.Open(path, FileMode.Append))
+            using (Stream s = File.Open(path, FileMode.Append))
             {
                 byte[] b = System.Text.Encoding.ASCII.GetBytes(text);
                 s.Write(b, 0, b.Length);
@@ -72,7 +72,7 @@ namespace KLib
         public static void XmlSerialize<T>(T t, string path)
         {
             XmlSerializer serializer = new XmlSerializer(typeof(T));
-            using (System.IO.Stream s = File.Create(path)) {
+            using (Stream s = File.Create(path)) {
                 serializer.Serialize(s, t); 
             }
         }
@@ -81,7 +81,7 @@ namespace KLib
 		{
             T t;
 			XmlSerializer serializer = new XmlSerializer(typeof(T));
-            using (System.IO.Stream s = File.OpenRead(path))
+            using (Stream s = File.OpenRead(path))
             {
                 t = (T)serializer.Deserialize(s);
             }
@@ -101,7 +101,7 @@ namespace KLib
 
             XmlSerializer serializer = new XmlSerializer(typeof(T));
 
-            using (var writer = new System.IO.StringWriter(sb))
+            using (var writer = new StringWriter(sb))
             {
                 serializer.Serialize(writer, t);
             }
@@ -114,7 +114,7 @@ namespace KLib
             XmlSerializer serializer = new XmlSerializer(typeof(T));
             T t = default(T);
 
-            using (System.IO.StringReader reader = new System.IO.StringReader(data))
+            using (StringReader reader = new StringReader(data))
             {
                 t = (T)serializer.Deserialize(reader);
             }
@@ -123,7 +123,7 @@ namespace KLib
 
         public static void SerializeToBinary<T>(T t, string path)
 		{
-			using (System.IO.Stream s = File.Create(path)) {
+			using (Stream s = File.Create(path)) {
                 Serializer.Serialize<T>(s, t);
 			}
 		}
@@ -131,11 +131,7 @@ namespace KLib
 		public static T DeserializeFromBinary<T>(string path)
 		{
 			T t;
-#if !UNITY_METRO || UNITY_EDITOR
-			using (System.IO.Stream s = File.OpenRead(path))
-#else
-            using (System.IO.Stream s = File.Open(path))
-#endif
+			using (Stream s = File.OpenRead(path))
             {
                 t = Serializer.Deserialize<T>(s);
 			}
@@ -143,15 +139,6 @@ namespace KLib
 			return t;
 		}
 		
-		public static string CombinePaths(params string[] paths)
-		{
-			string combinedPath = paths[0];
-			for (int k=1; k<paths.Length; k++)
-				combinedPath = System.IO.Path.Combine(combinedPath, paths[k]);
-			
-			return (combinedPath);
-		}
-
         public static void CreateBinarySerialization(string path)
         {
             _stream = File.Create(path);
@@ -159,11 +146,7 @@ namespace KLib
 
         public static void OpenBinarySerialization(string path)
         {
-#if !UNITY_METRO || UNITY_EDITOR
             _stream = File.OpenRead(path);
-#else
-            _stream = File.Open(path);
-#endif
         }
 
         public static void SerializeToBinary<T>(T t)
@@ -201,16 +184,7 @@ namespace KLib
                 k++;
             }
 
-            Copy(from, uniqueTo);
-        }
-
-        public static void Copy(string from, string to)
-        {
-#if !UNITY_METRO || UNITY_EDITOR
-            File.Copy(from, to);
-#else
-            File.Copy(from, to);
-#endif
+            File.Copy(from, uniqueTo);
         }
 
         public static List<string> ParseWebFiles(string xmlString)
@@ -229,7 +203,7 @@ namespace KLib
 
             if (!string.IsNullOrEmpty(xmlString))
             {
-                using (System.IO.StringReader reader = new System.IO.StringReader(xmlString))
+                using (StringReader reader = new StringReader(xmlString))
                 using (XmlTextReader xml = new XmlTextReader(reader) { Namespaces = false })
                 {
                     while (xml.Read())
@@ -254,7 +228,7 @@ namespace KLib
         {
             DateTime dt = new DateTime();
 
-            using (System.IO.StringReader reader = new System.IO.StringReader(response))
+            using (StringReader reader = new StringReader(response))
             using (XmlTextReader xml = new XmlTextReader(reader) { Namespaces = false })
             {
                 while (xml.Read())
@@ -280,7 +254,7 @@ namespace KLib
 
             if (!string.IsNullOrEmpty(xmlString))
             {
-                using (System.IO.StringReader reader = new System.IO.StringReader(xmlString))
+                using (StringReader reader = new StringReader(xmlString))
                 using (XmlTextReader xml = new XmlTextReader(reader) { Namespaces = false })
                 {
                     while (xml.Read())
@@ -300,25 +274,25 @@ namespace KLib
             return remoteFiles;
         }
 
-        public static string ReadString(System.IO.Stream s, int len)
+        public static string ReadString(Stream s, int len)
         {
             byte[] buffer = new byte[len];
             int nread = s.Read(buffer, 0, len);
             return new string(System.Text.Encoding.UTF8.GetChars(buffer));
         }
-        public static uint ReadUInt(System.IO.Stream s)
+        public static uint ReadUInt(Stream s)
         {
             byte[] buffer = new byte[4];
             int nread = s.Read(buffer, 0, 4);
             return BitConverter.ToUInt32(buffer, 0);
         }
-        public static ushort ReadUShort(System.IO.Stream s)
+        public static ushort ReadUShort(Stream s)
         {
             byte[] buffer = new byte[2];
             int nread = s.Read(buffer, 0, 2);
             return BitConverter.ToUInt16(buffer, 0);
         }
-        public static double ReadDouble(System.IO.Stream s)
+        public static double ReadDouble(Stream s)
         {
             byte[] buffer = new byte[8];
             int nread = s.Read(buffer, 0, 8);
@@ -351,7 +325,7 @@ namespace KLib
         public static byte[] ToProtoBuf<T>(T obj)
         {
             byte[] pbuf;
-            using (var ms = new System.IO.MemoryStream())
+            using (var ms = new MemoryStream())
             {
                 Serializer.Serialize<T>(ms, obj);
                 pbuf = ms.ToArray();
@@ -362,7 +336,7 @@ namespace KLib
         public static T FromProtoBuf<T>(byte[] pbuf)
         {
             T obj = default(T);
-            using (var ms = new System.IO.MemoryStream(pbuf))
+            using (var ms = new MemoryStream(pbuf))
             {
                 obj = Serializer.Deserialize<T>(ms);
             }
