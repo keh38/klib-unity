@@ -19,17 +19,26 @@ namespace KLib.MSGraph
 {
     public static class MSGraphClient
     {
+        [Flags]
+        public enum ConnectionStatus
+        {
+            Unconnected = 0x00,
+            HaveInterface = 0x01,
+            HaveAccessToken = 0x02,
+            HaveFolderAccess = 0x04,
+            Error = 0x08,
+            Ready = HaveInterface | HaveAccessToken | HaveFolderAccess
+        }
+
         private static string _accessToken = "";
         private static string _basePath = "";
         private static string _lastError = "";
-        private static string _requestedFolder = ""; 
+        private static string _requestedFolder = "";
 
         private static int _timeOut = 5000;
 
         static string _graphAPIEndpoint = "https://graph.microsoft.com/v1.0/me";
 
-        public static bool IsConnected { get { return !string.IsNullOrEmpty(_accessToken); } }
-        public static bool IsReady { get { return !string.IsNullOrEmpty(_accessToken) && !string.IsNullOrEmpty(_basePath); } }
         public static string LastError { get { return _lastError; } }
         public static string RestartPath { set; get; } = "";
 
@@ -46,10 +55,8 @@ namespace KLib.MSGraph
             set { _timeOut = value; }
             get { return _timeOut; }
         }
-        
-        //public static string Token {  get { return _accessToken; } }
 
-        public static bool Initialize(string folder)
+        public static ConnectionStatus Initialize(string folder)
         {
             _accessToken = "";
             _basePath = "";
@@ -73,45 +80,56 @@ namespace KLib.MSGraph
                 _lastError = ex.Message;
             }
 
-            return !string.IsNullOrEmpty(_accessToken) && !string.IsNullOrEmpty(_basePath);
+            return GetConnectionStatus();
         }
 
-        public static string GetInitializationStatus() { return GetInitializationStatus(0); }
-
-        public static string GetInitializationStatus(int maxLen)
+        public static ConnectionStatus GetConnectionStatus()
         {
-            string status = "OK";
+            return GetConnectionStatus(out string details);
+        }
+
+        public static ConnectionStatus GetConnectionStatus(out string details)
+        {
+            ConnectionStatus status = ConnectionStatus.HaveInterface;
+            details = "";
+
+            if (!string.IsNullOrEmpty(_accessToken))
+            {
+                status |= ConnectionStatus.HaveAccessToken;
+            }
+            if (!string.IsNullOrEmpty(_basePath))
+            {
+                status |= ConnectionStatus.HaveFolderAccess;
+            }
+
             if (!string.IsNullOrEmpty(_lastError))
             {
+                status |= ConnectionStatus.Error;
                 if (_lastError.StartsWith("No connection"))
                 {
-                    status = "No connection to OneDrive Interface";
+                    status &= ~ConnectionStatus.HaveInterface;
+                    details = "No connection to OneDrive Interface";
                 }
                 else if (_lastError.StartsWith("Timeout"))
                 {
-                    status = "Network timeout";
+                    details = "Network timeout";
                 }
                 else if (_lastError.StartsWith("Failed to read"))
                 {
-                    status = "Connection error--no WiFi?";
+                    details = "Connection error--no WiFi?";
                 }
                 else
                 {
-                    status = _lastError;
+                    details = _lastError;
                 }
             }
             else if (string.IsNullOrEmpty(_accessToken))
             {
-                status = "Not signed in";
+                details = "Not signed in";
             }
             else if (string.IsNullOrEmpty(_basePath))
             {
-                status = $"Remote folder '{_requestedFolder}' not found";
-            }
-
-            if (maxLen > 0)
-            {
-                status = status.Substring(0, Math.Max(status.Length, maxLen));
+                details = $"Remote folder '{_requestedFolder}' not found";
             }
 
             return status;
@@ -120,7 +138,8 @@ namespace KLib.MSGraph
         public static bool TestConnection()
         {
             bool success = false;
-            if (IsReady)
+            var status = GetConnectionStatus();
+            if (status == ConnectionStatus.Ready)
             {
                 var content = GetHttpContentRemote("");
                 success = !string.IsNullOrEmpty(content);
