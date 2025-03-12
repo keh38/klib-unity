@@ -19,7 +19,7 @@ namespace KLib.Network
 
         private string _lastError;
 
-        private bool _bigEndian = true;
+        private bool _bigEndian = false;
 
         private NetworkStream _theStream;
         private BinaryReader _theReader;
