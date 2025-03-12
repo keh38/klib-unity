@@ -23,6 +23,27 @@ namespace KLib.Network
         private BinaryReader _theReader;
         private BinaryWriter _theWriter;
 
+        #region STATIC METHODS
+        public static int SendMessage(IPEndPoint ipEndPoint, string message)
+        {
+            int result = -1;
+
+            try
+            {
+                var client = new KTcpClient();
+                client.Connect(ipEndPoint.Address.ToString(), ipEndPoint.Port);
+                result = client.WriteBinary(message);
+                client.Close();
+            }
+            catch (Exception ex)
+            {
+            }
+
+            return result;
+
+        }
+        #endregion
+
         public void Connect(string hostName, int port)
         {
             _socket = new TcpClient(hostName, port);
@@ -178,94 +199,6 @@ namespace KLib.Network
             }
 
             return result;
-        }
-
-
-#if NETFX_CORE || WINDOWS_PHONE
-        private StreamSocket _socket = null;
-        DataWriter _writer;
-
-        private async Task EnsureSocket(string hostName, int port)
-        {
-            try
-            {
-                var host = new HostName(hostName);
-                _socket = new StreamSocket();
-                await _socket.ConnectAsync(host, port.ToString(), SocketProtectionLevel.SslAllowNullEncryption);
-            }
-            catch (Exception ex)
-            {
-                // If this is an unknown status it means that the error is fatal and retry will likely fail.
-                if (SocketError.GetStatus(ex.HResult) == SocketErrorStatus.Unknown)
-                {
-                    // TODO abort any retry attempts on Unity side
-                    throw;
-                }
-            }
-        }
-
-        private async Task WriteToOutputStreamAsync(byte[] bytes)
-        {
-
-            if (_socket == null) return;
-            _writer = new DataWriter(_socket.OutputStream);
-            _writer.WriteBytes(bytes);
-
-            var debugString = UTF8Encoding.UTF8.GetString(bytes, 0, bytes.Length);
-
-            try
-            {
-                await _writer.StoreAsync();
-                await _socket.OutputStream.FlushAsync();
-
-                _writer.DetachStream();
-                _writer.Dispose();
-            }
-            catch (Exception exception)
-            {
-                // If this is an unknown status it means that the error if fatal and retry will likely fail.
-                if (SocketError.GetStatus(exception.HResult) == SocketErrorStatus.Unknown)
-                {
-                    // TODO abort any retry attempts on Unity side
-                    throw;
-                }
-            }
-        }
-#endif
-
-        public Stream GetStream()
-        {
-#if NETFX_CORE || WINDOWS_PHONE
-            if (_socket == null) return null;
-            return _socket.InputStream.AsStreamForRead();
-#else
-            throw new NotImplementedException();
-#endif
-        }
-
-        public Stream GetOutputStream()
-        {
-#if NETFX_CORE || WINDOWS_PHONE
-            if (_socket == null) return null;
-            return _socket.OutputStream.AsStreamForWrite();
-#else
-            throw new NotImplementedException();
-#endif
-        }
-
-        public void WriteToOutputStream(byte[] bytes)
-        {
-#if NETFX_CORE || WINDOWS_PHONE
-            var thread = WriteToOutputStreamAsync(bytes);
-            thread.Wait();
-#else
-            throw new NotImplementedException();
-#endif
-        }
-
-        public byte ReadByteFromInputStream()
-        {
-            throw new NotImplementedException();
         }
 
         public int ReadIntFromInputStream()
