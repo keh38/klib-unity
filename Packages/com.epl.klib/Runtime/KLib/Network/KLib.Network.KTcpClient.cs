@@ -33,9 +33,9 @@ namespace KLib.Network
             try
             {
                 var client = new KTcpClient();
-                client.Connect(ipEndPoint.Address.ToString(), ipEndPoint.Port);
+                client.ConnectTCPServer(ipEndPoint.Address.ToString(), ipEndPoint.Port);
                 result = client.WriteStringAsByteArray(message);
-                client.Close();
+                client.CloseTCPServer();
             }
             catch (Exception ex)
             {
