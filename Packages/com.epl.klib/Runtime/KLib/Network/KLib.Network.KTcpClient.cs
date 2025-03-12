@@ -19,6 +19,8 @@ namespace KLib.Network
 
         private string _lastError;
 
+        private bool _bigEndian = true;
+
         private NetworkStream _theStream;
         private BinaryReader _theReader;
         private BinaryWriter _theWriter;
@@ -32,7 +34,7 @@ namespace KLib.Network
             {
                 var client = new KTcpClient();
                 client.Connect(ipEndPoint.Address.ToString(), ipEndPoint.Port);
-                result = client.WriteBinary(message);
+                result = client.WriteStringAsByteArray(message);
                 client.Close();
             }
             catch (Exception ex)
@@ -110,6 +112,25 @@ namespace KLib.Network
 
             _theWriter.Write(nbytes);
             _theWriter.Write(data);
+            _theWriter.Flush();
+
+            return _theReader.ReadInt32();
+        }
+
+        public int WriteStringAsByteArray(string s)
+        {
+            var byteArray = Encoding.UTF8.GetBytes(s);
+            int nbytes = byteArray.Length;
+
+            if (_bigEndian)
+            {
+                var bytes = BitConverter.GetBytes(nbytes);
+                Array.Reverse(bytes);
+                nbytes = BitConverter.ToInt32(bytes, 0);
+            }
+
+            _theWriter.Write(nbytes);
+            _theWriter.Write(byteArray);
             _theWriter.Flush();
 
             return _theReader.ReadInt32();
