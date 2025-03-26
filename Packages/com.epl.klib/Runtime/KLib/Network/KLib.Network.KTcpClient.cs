@@ -96,7 +96,7 @@ namespace KLib.Network
 
         public int WriteBinary(string s)
         {
-            var byteArray = System.Text.Encoding.UTF8.GetBytes(s);
+            var byteArray = Encoding.UTF8.GetBytes(s);
             int nbytes = byteArray.Length;
 
             _theWriter.Write(nbytes);

@@ -85,6 +85,18 @@ namespace KLib.Network
             _network.Dispose();
         }
 
+        public void Write(int value)
+        {
+            _theWriter.Write(value);
+            _theWriter.Flush();
+        }
+
+        public void Write(long value)
+        {
+            _theWriter.Write(value);
+            _theWriter.Flush();
+        }
+
         public void WriteStringAsByteArray(string s)
         {
             var byteArray = System.Text.Encoding.UTF8.GetBytes(s);
