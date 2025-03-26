@@ -121,7 +121,7 @@ namespace KLib.Network
                     // receive bytes
                     var bytes = _udp.Receive(ref anyIP);
                     var response = Encoding.Default.GetString(bytes);
-                    Debug.Log("Multicast received: " + response);
+                    //Debug.Log("Multicast received: " + response);
 
                     if (response.Equals(_name))
                     {
