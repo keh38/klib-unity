@@ -21,6 +21,16 @@ namespace KLib.Network
 
         private bool _bigEndian = true;
 
+        public bool StartListener(IPEndPoint ipEndPoint, bool bigEndian)
+        {
+            _bigEndian = bigEndian;
+
+            _listener = new TcpListener(ipEndPoint);
+            _listener.Start();
+
+            return true;
+        }
+
         public bool StartListener(string address, int port)
         {
             return StartListener(address, port, true);
@@ -37,13 +47,11 @@ namespace KLib.Network
         {
             _bigEndian = bigEndian;
 
-
             IPAddress ipAddress = (address.Equals("localhost")) ? IPAddress.Loopback : IPAddress.Parse(address);
 
             _listener = new TcpListener(ipAddress, port);
             _listener.Start();
             
-
             return true;
         }
 

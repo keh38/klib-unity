@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using UnityEngine;
 
 namespace KLib.Network
@@ -11,6 +13,53 @@ namespace KLib.Network
     /// </summary>
     public static class NetworkUtils
     {
+        public static IPEndPoint FindNextAvailableEndPoint()
+        {
+            int numPortsToTry = 1000;
+            int port = 4950;
+
+            string address = FindServerAddress();
+
+            IPAddress ipAddress = null;
+            if (address.Equals("localhost"))
+            {
+                ipAddress = IPAddress.Loopback;
+            }
+            else
+            {
+                ipAddress = IPAddress.Parse(address);
+            }
+
+            TcpListener listener = null; ;
+            bool success = false;
+            for (int k = 0; k < numPortsToTry; k++)
+            {
+                try
+                {
+                    listener = new TcpListener(ipAddress, port);
+                    listener.Start();
+                    success = true;
+                }
+                catch (Exception ex)
+                {
+                    port++;
+                }
+
+                if (success)
+                {
+                    listener?.Stop();
+                    break;
+                }
+            }
+
+            if (success)
+            {
+                return new IPEndPoint(ipAddress, port);
+            }
+
+            return null;
+        }
+
         public static string FindServerAddress()
         {
             return FindServerAddress(true);
