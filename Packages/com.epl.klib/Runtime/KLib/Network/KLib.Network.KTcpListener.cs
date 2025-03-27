@@ -96,7 +96,7 @@ namespace KLib.Network
             _theWriter.Write(value);
             _theWriter.Flush();
         }
-
+        
         public void WriteStringAsByteArray(string s)
         {
             var byteArray = System.Text.Encoding.UTF8.GetBytes(s);
@@ -114,7 +114,7 @@ namespace KLib.Network
             _theWriter.Flush();
         }
 
-        public void WriteByteArray(byte[] byteArray)
+        public void Write(byte[] byteArray)
         {
             int nbytes = byteArray.Length;
 
@@ -129,6 +129,22 @@ namespace KLib.Network
             _theWriter.Write(byteArray);
             _theWriter.Flush();
         }
+
+        //public void WriteByteArray(byte[] byteArray)
+        //{
+        //    int nbytes = byteArray.Length;
+
+        //    if (_bigEndian)
+        //    {
+        //        var bytes = BitConverter.GetBytes(nbytes);
+        //        Array.Reverse(bytes);
+        //        nbytes = BitConverter.ToInt32(bytes, 0);
+        //    }
+
+        //    _theWriter.Write(nbytes);
+        //    _theWriter.Write(byteArray);
+        //    _theWriter.Flush();
+        //}
 
         //public void WriteInt32ToOutputStream(int value)
         //{
