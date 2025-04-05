@@ -70,6 +70,8 @@ namespace KLib
             }
         }
 
+        public static string LogPath { get { return Log._logPath; } }
+
         /// <summary>
         /// Create and initialize logger.
         /// </summary>
