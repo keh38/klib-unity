@@ -135,6 +135,7 @@ namespace KLib
 
         void OnDisable()
         {
+            UnityEngine.Debug.Log("hmmmm");
             Application.logMessageReceivedThreaded -= HandleLog;
             FlushLog();
         }
