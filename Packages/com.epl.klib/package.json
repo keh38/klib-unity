@@ -1,12 +1,12 @@
 {
   "name": "com.epl.klib",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "displayName": "KLib-Unity",
   "description": "Collection of reusable code for Unity3D",
   "unity": "2019.1",
   "unityRelease": "0b5",
-  "documentationUrl": "https://keh38.github.io/klib-unity/",
-  "changelogUrl": "https://github.com/keh38/klib-unity/blob/main/Packages/com.epl.klib/CHANGELOG.md",
+  "documentationUrl": "https://EPL-Engineering.github.io/klib-unity/",
+  "changelogUrl": "https://github.com/EPL-Engineering/klib-unity/blob/main/Packages/com.epl.klib/CHANGELOG.md",
   "licensesUrl": "https://example.com/licensing.html",
   "dependencies": {
     "com.unity.nuget.newtonsoft-json": "2.0.0"
@@ -19,6 +19,6 @@
   "author": {
     "name": "Ken Hancock",
     "email": "Ken_Hancock@meei.harvard.edu",
-    "url": "https://github.com/keh38/klib-unity.git"
+    "url": "https://github.com/EPL-Engineering/klib-unity.git"
   }
 }
