@@ -102,13 +102,19 @@ namespace KLib.Network
                                       select piece).ToArray();
 
                         // auto-configured LAN
-                        if (line.StartsWith("Interface:") && pieces[1].StartsWith("169.254"))
+                        if (line.StartsWith("Interface:") && pieces[1].StartsWith("192.168"))
+                        {
+                            address = pieces[1];
+                            return address;
+                        }
+                        // direct connection
+                        else if (line.StartsWith("Interface:") && pieces[1].StartsWith("169.254"))
                         {
                             address = pieces[1];
                             return address;
                         }
                         // LAN configured using 11.12.13.xxx convention
-                        if (line.StartsWith("Interface:") && pieces[1].StartsWith("11.12.13"))
+                        else if (line.StartsWith("Interface:") && pieces[1].StartsWith("11.12.13"))
                         {
                             address = pieces[1];
                             return address;
