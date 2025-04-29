@@ -13,9 +13,9 @@ using System.Xml;
 using Newtonsoft.Json;
 
 using KLib.Network;
-using KLib.MSGraph.Data;
+using KLib.MSGraphHide.Data;
 
-namespace KLib.MSGraph
+namespace KLib.MSGraphHide
 {
     public static class MSGraphClient
     {

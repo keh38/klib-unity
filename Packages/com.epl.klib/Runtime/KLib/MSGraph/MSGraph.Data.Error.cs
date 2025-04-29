@@ -1,4 +1,4 @@
-﻿namespace KLib.MSGraph.Data
+﻿namespace KLib.MSGraphHide.Data
 {
     public class Error
     {
