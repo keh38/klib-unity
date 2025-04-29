@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace KLib.MSGraphHide.Data
+namespace KLib.MSGraph.Data
 {
     public class DriveItemContainer
     {
