@@ -572,18 +572,6 @@
       <HintPath>Packages\com.epl.klib\Runtime\Plugins\protobuf-net.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Microsoft.Graph">
-      <HintPath>Packages\com.epl.klib\Runtime\Plugins\Microsoft.Graph\netstandard2.0\Microsoft.Graph.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Microsoft.Graph.Core">
-      <HintPath>Packages\com.epl.klib\Runtime\Plugins\Microsoft.Graph.Core\netstandard1.1\Microsoft.Graph.Core.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Diagnostics.DiagnosticSource">
-      <HintPath>Packages\com.epl.klib\Runtime\Plugins\System.Diagnostics.DiagnosticSource\netstandard1.3\System.Diagnostics.DiagnosticSource.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.0.47f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\mscorlib.dll</HintPath>
       <Private>False</Private>
