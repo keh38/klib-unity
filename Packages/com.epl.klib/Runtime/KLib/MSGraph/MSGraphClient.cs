@@ -8,6 +8,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Xml;
 
 using Microsoft.Graph;
@@ -179,6 +180,12 @@ namespace KLib.MSGraph
             }
 
             return user;
+        }
+
+        public static async Task<string> GetUser2()
+        {
+            var whatever = await _graphServiceClient.Me.Request().GetAsync();
+            return whatever.UserPrincipalName;
         }
 
         public static bool SignInUser()
