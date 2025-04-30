@@ -10,11 +10,16 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Xml;
 
+using Microsoft.Graph;
+
 using Newtonsoft.Json;
 
 using KLib.Network;
 using KLib.MSGraph.Data;
 
+
+using Error = KLib.MSGraph.Data.Error;
+using DriveItem = KLib.MSGraph.Data.DriveItem;
 namespace KLib.MSGraph
 {
     public static class MSGraphClient
@@ -45,6 +50,8 @@ namespace KLib.MSGraph
 
         private static int _port = 51234;
 
+        private static GraphServiceClient _graphServiceClient;
+
         private static bool ValidateServerCertificate(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
         {
             // Do not allow this client to communicate with unauthenticated servers. 
@@ -74,6 +81,14 @@ namespace KLib.MSGraph
                 if (!string.IsNullOrEmpty(_accessToken) && string.IsNullOrEmpty(_basePath))
                 {
                     SetBaseFolder(folder);
+                    _graphServiceClient =  new GraphServiceClient(
+                                   "https://graph.microsoft.com/v1.0",
+                                   new DelegateAuthenticationProvider(
+                                       async (requestMessage) =>
+                                       {
+                                        // Set bearer authentication on header
+                                        requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("bearer", _accessToken);
+                                       }));
                 }
             }
             catch (Exception ex)
@@ -591,8 +606,8 @@ namespace KLib.MSGraph
             var tcreated = System.DateTime.Parse(item.fileSystemInfo.createdDateTime).ToUniversalTime();
             var tmodified = System.DateTime.Parse(item.fileSystemInfo.lastModifiedDateTime).ToUniversalTime();
 
-            File.SetCreationTimeUtc(localPath, tcreated);
-            File.SetLastWriteTimeUtc(localPath, tmodified);
+            System.IO.File.SetCreationTimeUtc(localPath, tcreated);
+            System.IO.File.SetLastWriteTimeUtc(localPath, tmodified);
 
             return success;
         }
