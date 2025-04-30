@@ -10,7 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Xml;
 
-//using Microsoft.Graph;
+using Microsoft.Graph;
 
 using Newtonsoft.Json;
 
@@ -50,7 +50,7 @@ namespace KLib.MSGraph
 
         private static int _port = 51234;
 
-        //private static GraphServiceClient _graphServiceClient;
+        private static GraphServiceClient _graphServiceClient;
 
         private static bool ValidateServerCertificate(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
         {
@@ -81,14 +81,14 @@ namespace KLib.MSGraph
                 if (!string.IsNullOrEmpty(_accessToken) && string.IsNullOrEmpty(_basePath))
                 {
                     SetBaseFolder(folder);
-                    //_graphServiceClient =  new GraphServiceClient(
-                    //               "https://graph.microsoft.com/v1.0",
-                    //               new DelegateAuthenticationProvider(
-                    //                   async (requestMessage) =>
-                    //                   {
-                    //                    // Set bearer authentication on header
-                    //                    requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("bearer", _accessToken);
-                    //                   }));
+                    _graphServiceClient = new GraphServiceClient(
+                                   "https://graph.microsoft.com/v1.0",
+                                   new DelegateAuthenticationProvider(
+                                       async (requestMessage) =>
+                                       {
+                                           // Set bearer authentication on header
+                                           requestMessage.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("bearer", _accessToken);
+                                       }));
                 }
             }
             catch (Exception ex)
